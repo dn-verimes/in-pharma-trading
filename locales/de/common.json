@@ -1,0 +1,110 @@
+{
+  "meta": {
+    "title": "In Pharma Trading — Pharmaanlagen",
+    "description": "Internationaler Großhändler und Hersteller (unter Lizenz) von hochwertigen Pharmaanlagen. CE‑konform, GMP‑bereit, Finanzierungsoptionen und Lifecycle‑Support."
+  },
+  "nav": {
+    "home": "Start",
+    "machinery": "Maschinen",
+    "about": "Über uns",
+    "impression": "Impressionen",
+    "contact": "Kontakt"
+  },
+  "hero": {
+    "title": "Pharmaanlagen, passend zu Ihrem Prozess.",
+    "subtitle": "In Pharma Trading ist ein internationaler Großhändler und Hersteller (unter Lizenz) von hochwertigen Pharmaanlagen. Seit vielen Jahren sind wir mit einem Unternehmen verbunden, das auf die Herstellung und Verpackung von Nahrungsergänzungsmitteln spezialisiert ist. Dadurch wissen wir genau, welche Spezifikationen, Qualität und Servicelevel unsere Maschinen und Dienstleistungen haben müssen. Gemeinsam mit Ihnen bestimmen wir, welche Maschinen am besten zu Ihrer Situation passen. Zudem bieten wir flexible Finanzierung, damit die Anschaffung in Ihr Budget passt.",
+    "ctaPrimary": "Maschinen entdecken",
+    "ctaSecondary": "Angebot anfordern"
+  },
+  "why": {
+    "title": "Warum In Pharma Trading",
+    "cards": [
+      {
+        "title": "GMP‑bereite Partner",
+        "desc": "Wir arbeiten mit verlässlichen OEMs und Refurbishern gemäß pharmazeutischem GMP."
+      },
+      {
+        "title": "CE‑Konformität",
+        "desc": "Maschinen mit Dokumentation und CE‑Konformitätserklärungen."
+      },
+      {
+        "title": "Lifecycle‑Support",
+        "desc": "Installation, FAT/SAT, Schulung und Ersatzteile."
+      },
+      {
+        "title": "Finanzierungsoptionen",
+        "desc": "Leasing und Teilzahlungen abgestimmt auf Ihren Cashflow."
+      },
+      {
+        "title": "Schnelle Beschaffung",
+        "desc": "Rasch verfügbar: ab Lager oder auf Anfrage."
+      },
+      {
+        "title": "Prozessberatung",
+        "desc": "Jahrzehntelange Erfahrung in der Supplement‑Herstellung."
+      }
+    ]
+  },
+  "categories": {
+    "title": "Kategorien",
+    "items": [
+      "Blister",
+      "Kapselfüller",
+      "Tablettenpresse",
+      "Mischen",
+      "Abfüllen/Verschließen",
+      "Zählen",
+      "Induktion",
+      "Entblistern"
+    ]
+  },
+  "financing": {
+    "title": "Finanzierung passend zu Ihnen",
+    "cta": "Vertrieb kontaktieren"
+  },
+  "about": {
+    "title": "Tiefes Prozess‑Know‑how",
+    "body": "Unsere Wurzeln in der Herstellung und Verpackung von Supplements bedeuten, dass wir die kritischen Parameter verstehen — von Durchsatz und Containment bis Reinigung und Validierung."
+  },
+  "cta": {
+    "finalTitle": "Bereit, Ihr Projekt zu besprechen?",
+    "finalCta": "Kontakt aufnehmen"
+  },
+  "machinery": {
+    "filters": {
+      "title": "Filter",
+      "category": "Kategorie",
+      "capacity": "Durchsatz/Kapazität",
+      "condition": "Zustand",
+      "availability": "Verfügbarkeit",
+      "search": "Suche",
+      "reset": "Zurücksetzen"
+    },
+    "status": {
+      "in": "Auf Lager",
+      "req": "Auf Anfrage"
+    },
+    "enquire": "Anfragen"
+  },
+  "contact": {
+    "title": "Sagen Sie uns, was Sie brauchen",
+    "name": "Name",
+    "company": "Firma",
+    "email": "E‑Mail",
+    "phone": "Telefon",
+    "country": "Land",
+    "category": "Interessensgebiet",
+    "message": "Nachricht",
+    "file": "Datei anhängen (optional)",
+    "consent": "Ich willige ein, zu meiner Anfrage kontaktiert zu werden.",
+    "submit": "Senden",
+    "success": "Vielen Dank — wir melden uns in Kürze.",
+    "error": "Etwas ist schiefgelaufen. Bitte erneut versuchen."
+  },
+  "footer": {
+    "rights": "Alle Rechte vorbehalten.",
+    "privacy": "Datenschutz",
+    "terms": "AGB",
+    "follow": "Folgen"
+  }
+}

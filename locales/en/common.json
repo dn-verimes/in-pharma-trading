@@ -1,0 +1,110 @@
+{
+  "meta": {
+    "title": "In Pharma Trading — Pharmaceutical machinery",
+    "description": "International wholesaler and licensed manufacturer of high-quality pharmaceutical machinery. CE compliant, GMP-ready, financing options, and lifecycle support."
+  },
+  "nav": {
+    "home": "Home",
+    "machinery": "Machinery",
+    "about": "About",
+    "impression": "Impression",
+    "contact": "Contact"
+  },
+  "hero": {
+    "title": "Pharmaceutical machinery, matched to your process.",
+    "subtitle": "In Pharma Trading is an international wholesaler and manufacturer (under license) of high-quality pharmaceutical machinery. For many years we have been associated with a company specialized in the production and packaging of nutritional supplements. As a consequence, we know exactly which specifications, quality, and service levels our machines and services should have. Together with you, we determine which machines best fit your specific situation. We also offer flexible financing so the purchase can match your budget.",
+    "ctaPrimary": "Explore Machinery",
+    "ctaSecondary": "Request Quote"
+  },
+  "why": {
+    "title": "Why In Pharma Trading",
+    "cards": [
+      {
+        "title": "GMP-ready partners",
+        "desc": "We work with trusted OEMs and refurbishers aligned to pharmaceutical GMP."
+      },
+      {
+        "title": "CE compliance",
+        "desc": "Machines supported with documentation and CE conformity declarations."
+      },
+      {
+        "title": "Lifecycle support",
+        "desc": "Installation, FAT/SAT, operator training, and spare parts."
+      },
+      {
+        "title": "Financing options",
+        "desc": "Leasing and staged payments tailored to your cash flow."
+      },
+      {
+        "title": "Rapid sourcing",
+        "desc": "Fast access to in-stock and on-request equipment."
+      },
+      {
+        "title": "Process guidance",
+        "desc": "Decades of supplement-production experience inform our advice."
+      }
+    ]
+  },
+  "categories": {
+    "title": "Categories",
+    "items": [
+      "Blister",
+      "Capsule Filling",
+      "Tablet Press",
+      "Mixing",
+      "Filling/Sealing",
+      "Counting",
+      "Induction",
+      "Deblistering"
+    ]
+  },
+  "financing": {
+    "title": "Financing options tailored to you",
+    "cta": "Talk to sales"
+  },
+  "about": {
+    "title": "Deep process know‑how",
+    "body": "Our roots in supplement production and packaging mean we understand the critical parameters—from throughput and containment to cleaning and validation—that keep your line compliant and efficient."
+  },
+  "cta": {
+    "finalTitle": "Ready to discuss your project?",
+    "finalCta": "Contact us"
+  },
+  "machinery": {
+    "filters": {
+      "title": "Filter",
+      "category": "Category",
+      "capacity": "Throughput/Capacity",
+      "condition": "Condition",
+      "availability": "Availability",
+      "search": "Keyword search",
+      "reset": "Reset filters"
+    },
+    "status": {
+      "in": "In stock",
+      "req": "On request"
+    },
+    "enquire": "Enquire"
+  },
+  "contact": {
+    "title": "Tell us what you need",
+    "name": "Name",
+    "company": "Company",
+    "email": "Email",
+    "phone": "Phone",
+    "country": "Country",
+    "category": "Category of interest",
+    "message": "Message",
+    "file": "Attach file (optional)",
+    "consent": "I consent to be contacted about my inquiry.",
+    "submit": "Send request",
+    "success": "Thanks — we’ll get back to you shortly.",
+    "error": "Something went wrong. Please try again."
+  },
+  "footer": {
+    "rights": "All rights reserved.",
+    "privacy": "Privacy",
+    "terms": "Terms",
+    "follow": "Follow"
+  }
+}

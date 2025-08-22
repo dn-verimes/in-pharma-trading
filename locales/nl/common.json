@@ -1,0 +1,110 @@
+{
+  "meta": {
+    "title": "In Pharma Trading — Farmaceutische machines",
+    "description": "Internationale groothandel en fabrikant (onder licentie) van hoogwaardige farmaceutische machines. CE‑conform, GMP‑gereed, financieringsopties en lifecycle‑support."
+  },
+  "nav": {
+    "home": "Home",
+    "machinery": "Machines",
+    "about": "Over ons",
+    "impression": "Impressie",
+    "contact": "Contact"
+  },
+  "hero": {
+    "title": "Farmaceutische machines, afgestemd op uw proces.",
+    "subtitle": "In Pharma Trading is een internationale groothandel en fabrikant (onder licentie) van hoogwaardige farmaceutische machines. Al vele jaren zijn wij verbonden aan een bedrijf dat is gespecialiseerd in de productie en verpakking van voedingssupplementen. Daardoor weten wij exact welke specificaties, kwaliteit en servicestandaarden onze machines en diensten moeten hebben. Samen bepalen we welke machines het beste bij uw situatie passen. We bieden tevens flexibele financiering zodat de aanschaf bij uw budget past.",
+    "ctaPrimary": "Ontdek machines",
+    "ctaSecondary": "Offerte aanvragen"
+  },
+  "why": {
+    "title": "Waarom In Pharma Trading",
+    "cards": [
+      {
+        "title": "GMP‑gereed",
+        "desc": "Samenwerking met betrouwbare OEM’s en refurbishers volgens farmaceutische GMP."
+      },
+      {
+        "title": "CE‑conform",
+        "desc": "Machines met documentatie en CE‑verklaringen."
+      },
+      {
+        "title": "Lifecycle‑support",
+        "desc": "Installatie, FAT/SAT, training en onderdelen."
+      },
+      {
+        "title": "Financiering",
+        "desc": "Leasen en gespreide betalingen afgestemd op uw cashflow."
+      },
+      {
+        "title": "Snelle sourcing",
+        "desc": "Snel toegang tot voorraad en op aanvraag."
+      },
+      {
+        "title": "Procesadvies",
+        "desc": "Decennia ervaring in supplementenproductie."
+      }
+    ]
+  },
+  "categories": {
+    "title": "Categorieën",
+    "items": [
+      "Blister",
+      "Capsulevullen",
+      "Tabletpers",
+      "Mengen",
+      "Afvullen/Sealen",
+      "Tellen",
+      "Inductie",
+      "Deblisteren"
+    ]
+  },
+  "financing": {
+    "title": "Financiering op maat",
+    "cta": "Contact met sales"
+  },
+  "about": {
+    "title": "Diepe proceskennis",
+    "body": "Onze achtergrond in supplementproductie en -verpakking betekent dat we de cruciale parameters kennen — van throughput en containment tot reinigen en validatie."
+  },
+  "cta": {
+    "finalTitle": "Klaar om uw project te bespreken?",
+    "finalCta": "Neem contact op"
+  },
+  "machinery": {
+    "filters": {
+      "title": "Filter",
+      "category": "Categorie",
+      "capacity": "Doorvoer/Capaciteit",
+      "condition": "Conditie",
+      "availability": "Beschikbaarheid",
+      "search": "Zoeken",
+      "reset": "Reset"
+    },
+    "status": {
+      "in": "Op voorraad",
+      "req": "Op aanvraag"
+    },
+    "enquire": "Informeer"
+  },
+  "contact": {
+    "title": "Vertel ons wat u nodig heeft",
+    "name": "Naam",
+    "company": "Bedrijf",
+    "email": "E‑mail",
+    "phone": "Telefoon",
+    "country": "Land",
+    "category": "Categorie van interesse",
+    "message": "Bericht",
+    "file": "Bestand toevoegen (optioneel)",
+    "consent": "Ik geef toestemming om contact met mij op te nemen over mijn aanvraag.",
+    "submit": "Verzenden",
+    "success": "Bedankt — we nemen snel contact op.",
+    "error": "Er ging iets mis. Probeer het opnieuw."
+  },
+  "footer": {
+    "rights": "Alle rechten voorbehouden.",
+    "privacy": "Privacy",
+    "terms": "Voorwaarden",
+    "follow": "Volgen"
+  }
+}

@@ -1,0 +1,37 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Fluid type/spacing tokens */
+:root{
+  --step--1: clamp(0.875rem, 0.75rem + 0.5vw, 1rem);
+  --step-0: clamp(1rem, 0.8rem + 1vw, 1.125rem);
+  --step-1: clamp(1.125rem, 0.9rem + 1.5vw, 1.375rem);
+  --step-2: clamp(1.25rem, 1rem + 2vw, 1.75rem);
+  --step-3: clamp(1.5rem, 1.2rem + 3vw, 2.25rem);
+  --radius-xl: 1rem;
+}
+
+/* Container queries setup */
+.cq-section { container-type: inline-size; container-name: section; }
+
+/* Reduced motion */
+@media (prefers-reduced-motion: reduce){
+  * { animation-duration: 0.001ms !important; animation-iteration-count: 1 !important; transition-duration: 0.001ms !important; }
+}
+
+/* Safe-area paddings */
+.safe-px { padding-left: max(1rem, env(safe-area-inset-left)); padding-right: max(1rem, env(safe-area-inset-right)); }
+.safe-pt { padding-top: max(1rem, env(safe-area-inset-top)); }
+.safe-pb { padding-bottom: max(1rem, env(safe-area-inset-bottom)); }
+
+/* Scroll-snap chips */
+.chips { scroll-snap-type: x mandatory; }
+.chips > * { scroll-snap-align: start; }
+
+/* Reveal on view */
+.reveal { opacity: 0; transform: translateY(8px); will-change: transform, opacity; }
+.reveal.in { opacity: 1; transform: translateY(0); transition: opacity .5s ease, transform .5s ease; }
+
+/* Below-the-fold optimization */
+.btf { content-visibility: auto; contain-intrinsic-size: 600px; }
