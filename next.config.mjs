@@ -6,12 +6,12 @@ const nextConfig = {
   },
   images: {
     formats: ['image/avif', 'image/webp'],
-    // unoptimized: true // Only needed for static export
+    unoptimized: true // Only needed for static export
   },
-  // output: 'export', // Disabled to allow middleware
+  output: 'export', // Enable static export for Azure SWA
   trailingSlash: true,
-  // distDir: 'out', // Only needed for static export
-  // skipMiddlewareUrlNormalize: true // Only needed for static export
+  distDir: 'out', // Only needed for static export
+  skipMiddlewareUrlNormalize: true // Only needed for static export
 };
 
 export default nextConfig;
