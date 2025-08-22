@@ -31,6 +31,31 @@ jobs:
       
       - name: Build Next.js app
         run: npm run build
+      
+      - name: Create root index.html
+        run: |
+          cat > out/index.html << 'EOF'
+          <!DOCTYPE html>
+          <html>
+          <head>
+            <meta charset="utf-8">
+            <title>In Pharma Trading</title>
+            <script>
+              // Redirect to default locale
+              const preferredLang = navigator.language?.split('-')[0];
+              const supportedLangs = ['en', 'de', 'nl'];
+              const defaultLang = supportedLangs.includes(preferredLang) ? preferredLang : 'en';
+              window.location.replace('/' + defaultLang + '/');
+            </script>
+            <noscript>
+              <meta http-equiv="refresh" content="0; url=/en/">
+            </noscript>
+          </head>
+          <body>
+            <p>Redirecting to <a href="/en/">In Pharma Trading</a>...</p>
+          </body>
+          </html>
+          EOF
         
       - name: Build And Deploy
         id: builddeploy
@@ -44,6 +69,7 @@ jobs:
           app_location: "/" # App source code path
           api_location: "" # Api source code path - optional
           output_location: "out" # Built app content directory - optional
+          skip_app_build: true # Skip build since we already built the app
           ###### End of Repository/Build Configurations ######
 
   close_pull_request_job:
