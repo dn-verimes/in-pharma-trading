@@ -35,3 +35,10 @@
 
 /* Below-the-fold optimization */
 .btf { content-visibility: auto; contain-intrinsic-size: 600px; }
+
+/* CTA button press/hover affordances */
+.btn-press { transition: transform .12s ease; }
+@media (hover:hover) {
+  .btn-press:hover { transform: translateY(-1px); }
+}
+.btn-press:active { transform: scale(.98); }

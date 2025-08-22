@@ -12,9 +12,13 @@
   },
   "hero": {
     "title": "Farmaceutische machines, afgestemd op uw proces.",
-    "subtitle": "In Pharma Trading is een internationale groothandel en fabrikant (onder licentie) van hoogwaardige farmaceutische machines. Al vele jaren zijn wij verbonden aan een bedrijf dat is gespecialiseerd in de productie en verpakking van voedingssupplementen. Daardoor weten wij exact welke specificaties, kwaliteit en servicestandaarden onze machines en diensten moeten hebben. Samen bepalen we welke machines het beste bij uw situatie passen. We bieden tevens flexibele financiering zodat de aanschaf bij uw budget past.",
+    "subtitle": "In Pharma Trading is een internationale groothandel en fabrikant van hoogwaardige farmaceutische machines. Wij weten exact welke specificaties en servicestandaarden onze machines moeten hebben. Samen bepalen we welke machines het beste bij uw situatie passen.",
     "ctaPrimary": "Ontdek machines",
     "ctaSecondary": "Offerte aanvragen"
+  },
+  "about": {
+    "title": "Over In Pharma Trading",
+    "description": "In Pharma Trading is een internationale groothandel en fabrikant (onder licentie) van hoogwaardige farmaceutische machines. Al vele jaren zijn wij verbonden aan bedrijven die gespecialiseerd zijn in de productie en verpakking van voedingssupplementen. Daardoor weten wij exact welke specificaties, kwaliteit en servicestandaarden onze machines en diensten moeten hebben. Samen bepalen we welke machines het beste bij uw situatie passen. We bieden tevens flexibele financiering zodat de aanschaf bij uw budget past."
   },
   "why": {
     "title": "Waarom In Pharma Trading",

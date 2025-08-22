@@ -6,13 +6,12 @@ const nextConfig = {
   },
   images: {
     formats: ['image/avif', 'image/webp'],
-    unoptimized: true // Required for static export
+    // unoptimized: true // Only needed for static export
   },
-  output: 'export',
+  // output: 'export', // Disabled to allow middleware
   trailingSlash: true,
-  distDir: 'out',
-  // Disable middleware for static export
-  skipMiddlewareUrlNormalize: true
+  // distDir: 'out', // Only needed for static export
+  // skipMiddlewareUrlNormalize: true // Only needed for static export
 };
 
 export default nextConfig;

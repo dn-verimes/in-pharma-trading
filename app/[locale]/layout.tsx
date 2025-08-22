@@ -5,6 +5,8 @@ import { initI18n, type Locale } from '@/lib/i18n'
 import I18nProvider from '@/components/I18nProvider'
 import Header from '@/components/Header'
 import Footer from '@/components/Footer'
+import FramerProvider from '@/components/FramerProvider'
+import PageTransition from '@/components/PageTransition'
 
 const inter = Inter({ subsets: ['latin'], variable: '--font-inter' })
 
@@ -38,9 +40,11 @@ export default async function RootLayout({ children, params }: { children: React
     <html lang={params.locale}>
       <body className={`${inter.variable} antialiased text-slate-900 bg-white`}>
         <I18nProvider locale={params.locale}>
-          <Header locale={params.locale} />
-          <main>{children}</main>
-          <Footer locale={params.locale} />
+          <FramerProvider>
+            <Header locale={params.locale} />
+            <PageTransition>{children}</PageTransition>
+            <Footer locale={params.locale} />
+          </FramerProvider>
         </I18nProvider>
       </body>
     </html>

@@ -1,25 +1,24 @@
 'use client'
 import { I18nextProvider } from 'react-i18next'
-import { useEffect, useRef, useState } from 'react'
-import type { i18n } from 'i18next'
-import { initClientI18n, type Locale } from '@/lib/i18n/client'
+import { useMemo } from 'react'
+import { createInstance } from 'i18next'
+import { initReactI18next } from 'react-i18next'
+import type { Locale } from '@/lib/i18n/client'
+import { resources } from '@/lib/i18n/client'
 
 export default function I18nProvider({ locale, children }: { locale: Locale, children: React.ReactNode }){
-  const [i18nInstance, setI18nInstance] = useState<i18n | null>(null)
-  const ref = useRef<i18n | null>(null)
-  
-  useEffect(() => {
-    if (!ref.current) {
-      initClientI18n(locale).then((instance) => {
-        ref.current = instance
-        setI18nInstance(instance)
+  const i18nInstance = useMemo(() => {
+    const i18n = createInstance()
+    i18n
+      .use(initReactI18next)
+      .init({
+        lng: locale,
+        fallbackLng: 'en',
+        resources,
+        interpolation: { escapeValue: false }
       })
-    }
+    return i18n
   }, [locale])
-
-  if (!i18nInstance) {
-    return <div>Loading...</div> // You might want to use a proper loading component
-  }
 
   return <I18nextProvider i18n={i18nInstance}>{children}</I18nextProvider>
 }

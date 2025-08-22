@@ -21,9 +21,8 @@ export default function Footer({ locale }: { locale: string }){
             <ul className="space-y-1 text-sm">
               <li><Link href={`/${locale}`} prefetch> {t('nav.home')} </Link></li>
               <li><Link href={`/${locale}/machinery`} prefetch> {t('nav.machinery')} </Link></li>
-              <li><Link href={`/${locale}/about`} prefetch> {t('nav.about')} </Link></li>
               <li><Link href={`/${locale}/impression`} prefetch> {t('nav.impression')} </Link></li>
-              <li><Link href={`/${locale}/contact`} prefetch> {t('nav.contact')} </Link></li>
+              <li><Link href={`/${locale}/about`} prefetch> {t('nav.about')} </Link></li>
             </ul>
           </div>
           <div>

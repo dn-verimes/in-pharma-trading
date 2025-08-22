@@ -12,9 +12,13 @@
   },
   "hero": {
     "title": "Pharmaanlagen, passend zu Ihrem Prozess.",
-    "subtitle": "In Pharma Trading ist ein internationaler Großhändler und Hersteller (unter Lizenz) von hochwertigen Pharmaanlagen. Seit vielen Jahren sind wir mit einem Unternehmen verbunden, das auf die Herstellung und Verpackung von Nahrungsergänzungsmitteln spezialisiert ist. Dadurch wissen wir genau, welche Spezifikationen, Qualität und Servicelevel unsere Maschinen und Dienstleistungen haben müssen. Gemeinsam mit Ihnen bestimmen wir, welche Maschinen am besten zu Ihrer Situation passen. Zudem bieten wir flexible Finanzierung, damit die Anschaffung in Ihr Budget passt.",
+    "subtitle": "In Pharma Trading ist ein internationaler Großhändler und Hersteller von hochwertigen Pharmaanlagen. Wir wissen genau, welche Spezifikationen und Servicelevel unsere Maschinen haben müssen. Gemeinsam mit Ihnen bestimmen wir, welche Maschinen am besten zu Ihrer Situation passen.",
     "ctaPrimary": "Maschinen entdecken",
     "ctaSecondary": "Angebot anfordern"
+  },
+  "about": {
+    "title": "Über In Pharma Trading",
+    "description": "In Pharma Trading ist ein internationaler Großhändler und Hersteller (unter Lizenz) von hochwertigen Pharmaanlagen. Seit vielen Jahren sind wir mit Unternehmen verbunden, die auf die Herstellung und Verpackung von Nahrungsergänzungsmitteln spezialisiert sind. Dadurch wissen wir genau, welche Spezifikationen, Qualität und Servicelevel unsere Maschinen und Dienstleistungen haben müssen. Gemeinsam mit Ihnen bestimmen wir, welche Maschinen am besten zu Ihrer Situation passen. Zudem bieten wir flexible Finanzierung, damit die Anschaffung in Ihr Budget passt."
   },
   "why": {
     "title": "Warum In Pharma Trading",

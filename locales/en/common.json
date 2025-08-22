@@ -12,9 +12,13 @@
   },
   "hero": {
     "title": "Pharmaceutical machinery, matched to your process.",
-    "subtitle": "In Pharma Trading is an international wholesaler and manufacturer (under license) of high-quality pharmaceutical machinery. For many years we have been associated with a company specialized in the production and packaging of nutritional supplements. As a consequence, we know exactly which specifications, quality, and service levels our machines and services should have. Together with you, we determine which machines best fit your specific situation. We also offer flexible financing so the purchase can match your budget.",
+    "subtitle": "In Pharma Trading is an international wholesaler and manufacturer of high-quality pharmaceutical machinery. We know exactly which specifications and service levels our machines should have. Together with you, we determine which machines best fit your specific situation.",
     "ctaPrimary": "Explore Machinery",
     "ctaSecondary": "Request Quote"
+  },
+  "about": {
+    "title": "About In Pharma Trading",
+    "description": "In Pharma Trading is an international wholesaler and manufacturer (under license) of high-quality pharmaceutical machinery. For many years we have been associated with companies specialized in the production and packaging of nutritional supplements. As a consequence, we know exactly which specifications, quality, and service levels our machines and services should have. Together with you, we determine which machines best fit your specific situation. We also offer flexible financing so the purchase can match your budget."
   },
   "why": {
     "title": "Why In Pharma Trading",
