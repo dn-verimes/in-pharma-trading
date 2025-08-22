@@ -17,15 +17,7 @@ export default function Home({ params }: { params: { locale: string } }){
       <Reveal>
         <WhySection />
       </Reveal>
-      <Reveal>
-        <section className="safe-px mx-auto max-w-7xl py-12 md:py-16 cq-section btf">
-          <div className="rounded-xl p-6 bg-gradient-to-br from-inpharma-gradFrom to-inpharma-gradTo text-slate-900">
-            <div className="font-semibold mb-1">Financing options tailored to you</div>
-            <p className="text-sm opacity-90 mb-3 max-w-prose">Leasing and staged payments so your purchase matches your budget.</p>
-            <Link href={`/${params.locale}/contact`} className="inline-flex bg-white/20 hover:bg-white/30 rounded-lg px-3 py-2 text-sm text-white btn-press">Talk to sales</Link>
-          </div>
-        </section>
-      </Reveal>
+
       <Reveal>
         <section className="safe-px mx-auto max-w-7xl py-12 md:py-16 cq-section btf">
           <div className="grid gap-6 md:grid-cols-2 items-center">
