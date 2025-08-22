@@ -8,6 +8,14 @@ import Footer from '@/components/Footer'
 
 const inter = Inter({ subsets: ['latin'], variable: '--font-inter' })
 
+export async function generateStaticParams() {
+  return [
+    { locale: 'en' },
+    { locale: 'de' },
+    { locale: 'nl' }
+  ]
+}
+
 export async function generateMetadata({ params }: { params: { locale: Locale } }): Promise<Metadata>{
   const i18n = await initI18n(params.locale)
   return {

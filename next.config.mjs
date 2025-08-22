@@ -10,7 +10,9 @@ const nextConfig = {
   },
   output: 'export',
   trailingSlash: true,
-  distDir: 'out'
+  distDir: 'out',
+  // Disable middleware for static export
+  skipMiddlewareUrlNormalize: true
 };
 
 export default nextConfig;
