@@ -9,6 +9,7 @@ import { catalog, categories } from '@/lib/machines'
 export default function FeaturedMachinery({ locale }: { locale: string }) {
   const { t } = useTranslation()
   const [selectedCategory, setSelectedCategory] = useState<string | null>(null)
+  const [showAllOnMobile, setShowAllOnMobile] = useState(false)
   
   // Get category items from translations
   const items = t('categories.items', { returnObjects: true }) as string[]
@@ -19,7 +20,16 @@ export default function FeaturedMachinery({ locale }: { locale: string }) {
     : catalog.slice(0, 6) // Show first 6 when no filter selected
   
   // Limit to 6 machines even when filtered
-  const displayMachines = filteredMachines.slice(0, 6)
+  const allDisplayMachines = filteredMachines.slice(0, 6)
+  
+  // For mobile: show only 2 initially, unless "show all" is clicked
+  const displayMachines = showAllOnMobile ? allDisplayMachines : allDisplayMachines.slice(0, 2)
+  
+  // Reset mobile state when category changes
+  const handleCategoryChange = (category: string | null) => {
+    setSelectedCategory(category)
+    setShowAllOnMobile(false)
+  }
 
   return (
     <section className="safe-px mx-auto max-w-7xl py-12 md:py-16 cq-section btf">
@@ -42,7 +52,7 @@ export default function FeaturedMachinery({ locale }: { locale: string }) {
           {/* "All" chip */}
           <m.button
             whileTap={{ scale: 0.95 }}
-            onClick={() => setSelectedCategory(null)}
+            onClick={() => handleCategoryChange(null)}
             className={`inline-flex shrink-0 items-center rounded-full border px-3 py-2 text-sm transition-colors ${
               selectedCategory === null
                 ? 'border-inpharma-blue bg-inpharma-blue text-white'
@@ -59,7 +69,7 @@ export default function FeaturedMachinery({ locale }: { locale: string }) {
               <m.button
                 key={i}
                 whileTap={{ scale: 0.95 }}
-                onClick={() => setSelectedCategory(categories[i])}
+                onClick={() => handleCategoryChange(categories[i])}
                 className={`inline-flex shrink-0 items-center rounded-full border px-3 py-2 text-sm transition-colors ${
                   isSelected
                     ? 'border-inpharma-blue bg-inpharma-blue text-white'
@@ -74,10 +84,34 @@ export default function FeaturedMachinery({ locale }: { locale: string }) {
       </div>
       
       {/* Machinery Grid */}
-      <div className="grid gap-4 mt-6 grid-cols-[repeat(auto-fill,minmax(18rem,24rem))]">
-        {displayMachines.map(machine => (
+      {/* Desktop: Show all machines in grid */}
+      <div className="hidden md:grid gap-4 mt-6 grid-cols-[repeat(auto-fill,minmax(18rem,24rem))]">
+        {allDisplayMachines.map(machine => (
           <MachineryCard key={machine.id} m={machine} locale={locale} />
         ))}
+      </div>
+      
+      {/* Mobile: Show limited machines with Load more button */}
+      <div className="md:hidden">
+        <div className="grid gap-4 mt-6 grid-cols-1">
+          {displayMachines.map(machine => (
+            <MachineryCard key={machine.id} m={machine} locale={locale} />
+          ))}
+        </div>
+        
+        {/* Load More Button for Mobile */}
+        {!showAllOnMobile && allDisplayMachines.length > 2 && (
+          <div className="flex justify-center mt-6">
+            <m.button
+              onClick={() => setShowAllOnMobile(true)}
+              whileTap={{ scale: 0.95 }}
+              whileHover={{ scale: 1.02 }}
+              className="inline-flex items-center px-6 py-3 rounded-lg border border-slate-300 bg-white text-slate-700 hover:bg-slate-50 transition-colors font-medium text-sm"
+            >
+              Load more ({allDisplayMachines.length - 2} more)
+            </m.button>
+          </div>
+        )}
       </div>
       
       {/* Show message if no machines found */}
