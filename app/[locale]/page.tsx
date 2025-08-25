@@ -88,11 +88,11 @@ export default function Home({ params }: { params: { locale: string } }){
         <section className="safe-px mx-auto max-w-7xl py-12 md:py-16 cq-section btf">
           <div className="grid gap-6 md:grid-cols-2 items-center">
             <div>
-              <h3 className="text-slate-900 font-semibold mb-2" style={{fontSize:'var(--step-2)'}}>About</h3>
-              <p className="text-slate-600 max-w-prose">Our supplement-production background means we understand your constraints and validation needs.</p>
+              <h3 className="text-slate-900 font-semibold mb-2" style={{fontSize:'var(--step-2)'}}>{t('about.title')}</h3>
+              <p className="text-slate-600 max-w-prose">{t('about.description')}</p>
             </div>
             <div className="md:justify-self-end">
-              <Link href={`/${params.locale}/about`} className="rounded-lg border border-slate-300 px-4 py-2 text-sm">Learn more</Link>
+              <Link href={`/${params.locale}/about`} className="rounded-lg border border-slate-300 px-4 py-2 text-sm">{t('about.learnMore')}</Link>
             </div>
           </div>
         </section>
@@ -100,8 +100,8 @@ export default function Home({ params }: { params: { locale: string } }){
       <Reveal>
         <section className="safe-px mx-auto max-w-7xl py-12 md:py-16 cq-section btf">
           <div className="rounded-xl border border-slate-200 p-6 text-center">
-            <h3 className="font-semibold mb-2" style={{fontSize:'var(--step-2)'}}>Ready to discuss your project?</h3>
-            <Link href={`/${params.locale}/contact`} className="inline-flex rounded-lg bg-inpharma-blue text-white px-4 py-2 btn-press">Contact us</Link>
+            <h3 className="font-semibold mb-2" style={{fontSize:'var(--step-2)'}}>{t('cta.finalTitle')}</h3>
+            <Link href={`/${params.locale}/contact`} className="inline-flex rounded-lg bg-inpharma-blue text-white px-4 py-2 btn-press">{t('cta.finalCta')}</Link>
           </div>
         </section>
       </Reveal>

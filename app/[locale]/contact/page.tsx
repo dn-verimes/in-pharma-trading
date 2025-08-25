@@ -16,7 +16,7 @@ const schema = z.object({
   country: z.string().optional(),
   category: z.string().optional(),
   message: z.string().min(10),
-  consent: z.literal(true, { errorMap: () => ({ message: 'Consent required' }) })
+  consent: z.literal(true, { errorMap: () => ({ message: t('contact.consentRequired') }) })
 })
 type FormData = z.infer<typeof schema>
 
@@ -34,7 +34,7 @@ export default function Contact({ params }: { params: { locale: string } }){
     if (fileEl?.files?.[0]) fd.append('file', fileEl.files[0])
     const res = await fetch('/api/contact', { method: 'POST', body: fd })
     if (res.ok) reset()
-    else alert('Error')
+    else alert(t('contact.error'))
   }
 
   // Directional animation variants

@@ -34,7 +34,7 @@ export async function generateMetadata({ params }: { params: { locale: Locale } 
 export default async function RootLayout({ children, params }: { children: React.ReactNode, params: { locale: Locale } }){
   return (
     <html lang={params.locale}>
-      <body className={`${inter.variable} antialiased text-slate-900 bg-white`} suppressHydrationWarning={true}>
+      <body className={`${inter.variable} antialiased text-slate-900 bg-white`}>
         <ClientProviders locale={params.locale}>
           {children}
         </ClientProviders>

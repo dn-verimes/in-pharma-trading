@@ -15,7 +15,10 @@ export default function I18nProvider({ locale, children }: { locale: Locale, chi
         lng: locale,
         fallbackLng: 'en',
         resources,
-        interpolation: { escapeValue: false }
+        interpolation: { escapeValue: false },
+        react: {
+          useSuspense: false
+        }
       })
     return i18n
   }, [locale])

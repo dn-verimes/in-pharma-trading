@@ -27,15 +27,15 @@ export default function Footer({ locale }: { locale: string }){
           <div>
             <div className="font-semibold mb-2">{t('nav.contact')}</div>
             <ul className="space-y-1 text-sm text-slate-600">
-              <li>info@inpharmatrading.nl</li>
-              <li>+31 000 000 000</li>
-              <li>Netherlands</li>
+              <li>{t('footer.email')}</li>
+              <li>{t('footer.phone')}</li>
+              <li>{t('footer.country')}</li>
             </ul>
           </div>
         </div>
         <div className="rounded-xl p-4 bg-gradient-to-br from-inpharma-gradFrom to-inpharma-gradTo text-white">
           <div className="font-semibold mb-1">{t('financing.title')}</div>
-          <p className="text-sm opacity-90 mb-3">Leasing and staged payments designed to fit your cash flow.</p>
+          <p className="text-sm opacity-90 mb-3">{t('financing.description')}</p>
           <Link href={`/${locale}/contact`} className="inline-flex bg-white/20 hover:bg-white/30 rounded-lg px-3 py-2 text-sm">
             {t('financing.cta')}
           </Link>

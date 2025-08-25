@@ -77,10 +77,10 @@ export default function FeaturedMachinery({ locale }: { locale: string }) {
       <section className="safe-px mx-auto max-w-7xl py-12 md:py-16 cq-section btf">
       <div className="flex items-center justify-between mb-4">
         <h2 className="text-slate-900 font-semibold" style={{fontSize:'var(--step-2)'}}>
-          Featured Machinery
+          {t('machinery.featured')}
         </h2>
         <Link href={`/${locale}/machinery`} className="text-sm underline">
-          All machinery
+          {t('machinery.allMachinery')}
         </Link>
       </div>
       

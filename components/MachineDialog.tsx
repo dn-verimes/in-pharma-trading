@@ -147,13 +147,13 @@ export default function MachineDialog({ machine, isOpen, onClose, locale }: Mach
 
                   {/* Contact CTA - Always visible next to image */}
                   <div className="bg-slate-50 rounded-lg p-4 md:p-6 md:w-80 shrink-0">
-                    <h3 className="text-lg font-semibold text-slate-900 mb-2">Interested in this machine?</h3>
-                    <p className="text-slate-600 mb-4 text-sm">Contact us to discuss availability, pricing, and technical specifications.</p>
+                    <h3 className="text-lg font-semibold text-slate-900 mb-2">{t('machinery.interested')}</h3>
+                    <p className="text-slate-600 mb-4 text-sm">{t('machinery.contactDescription')}</p>
                     <a
                       href={`/${locale}/contact`}
                       className="inline-flex items-center px-4 py-2 bg-blue-600 text-white rounded-lg hover:bg-blue-700 transition-colors font-medium w-full justify-center"
                     >
-                      Contact Us
+                      {t('machinery.contactUs')}
                     </a>
                   </div>
                 </div>
@@ -161,21 +161,21 @@ export default function MachineDialog({ machine, isOpen, onClose, locale }: Mach
                 {/* Basic Info */}
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                   <div>
-                    <h3 className="text-lg font-semibold text-slate-900 mb-3">Details</h3>
+                    <h3 className="text-lg font-semibold text-slate-900 mb-3">{t('machinery.details')}</h3>
                     <div className="space-y-2">
                       <div className="flex justify-between">
-                        <span className="text-slate-600">Category:</span>
+                        <span className="text-slate-600">{t('machinery.category')}:</span>
                         <span className="font-medium">{machine.category}</span>
                       </div>
                       <div className="flex justify-between">
-                        <span className="text-slate-600">Status:</span>
+                        <span className="text-slate-600">{t('machinery.status')}:</span>
                         <span className={`font-medium ${machine.status === 'In stock' ? 'text-green-600' : 'text-orange-600'}`}>
                           {machine.status === 'In stock' ? t('machinery.status.in') : t('machinery.status.req')}
                         </span>
                       </div>
                       {machine.condition && (
                         <div className="flex justify-between">
-                          <span className="text-slate-600">Condition:</span>
+                          <span className="text-slate-600">{t('machinery.condition')}:</span>
                           <span className="font-medium">{machine.condition}</span>
                         </div>
                       )}
@@ -183,7 +183,7 @@ export default function MachineDialog({ machine, isOpen, onClose, locale }: Mach
                   </div>
 
                   <div>
-                    <h3 className="text-lg font-semibold text-slate-900 mb-3">Key Specifications</h3>
+                    <h3 className="text-lg font-semibold text-slate-900 mb-3">{t('machinery.keySpecs')}</h3>
                     <div className="space-y-2">
                       {machine.keySpecs.map((spec, index) => (
                         <div key={index} className="flex justify-between">
@@ -197,7 +197,7 @@ export default function MachineDialog({ machine, isOpen, onClose, locale }: Mach
 
                 {/* Description */}
                 <div>
-                  <h3 className="text-lg font-semibold text-slate-900 mb-3">Description</h3>
+                  <h3 className="text-lg font-semibold text-slate-900 mb-3">{t('machinery.description')}</h3>
                   <p className="text-slate-600 leading-relaxed">{machine.shortDescription}</p>
                 </div>
               </div>

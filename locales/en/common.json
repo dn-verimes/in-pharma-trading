@@ -19,7 +19,8 @@
   "about": {
     "title": "About In Pharma Trading",
     "subtitle": "Discover our international expertise in pharmaceutical machinery and our commitment to delivering high-quality solutions tailored to your production needs.",
-    "description": "In Pharma Trading is an international wholesaler and manufacturer (under license) of high-quality pharmaceutical machinery. For many years we have been associated with companies specialized in the production and packaging of nutritional supplements. As a consequence, we know exactly which specifications, quality, and service levels our machines and services should have. Together with you, we determine which machines best fit your specific situation. We also offer flexible financing so the purchase can match your budget."
+    "description": "In Pharma Trading is an international wholesaler and manufacturer (under license) of high-quality pharmaceutical machinery. For many years we have been associated with companies specialized in the production and packaging of nutritional supplements. As a consequence, we know exactly which specifications, quality, and service levels our machines and services should have. Together with you, we determine which machines best fit your specific situation. We also offer flexible financing so the purchase can match your budget.",
+    "learnMore": "Learn more"
   },
   "why": {
     "title": "Why In Pharma Trading",
@@ -65,6 +66,7 @@
   },
   "financing": {
     "title": "Financing options tailored to you",
+    "description": "Leasing and staged payments designed to fit your cash flow.",
     "cta": "Talk to sales"
   },
 
@@ -88,7 +90,18 @@
       "in": "In stock",
       "req": "On request"
     },
-    "enquire": "Enquire"
+    "enquire": "Enquire",
+    "interested": "Interested in this machine?",
+    "contactDescription": "Contact us to discuss availability, pricing, and technical specifications.",
+    "contactUs": "Contact Us",
+    "details": "Details",
+    "category": "Category",
+    "status": "Status",
+    "condition": "Condition",
+    "keySpecs": "Key Specifications",
+    "description": "Description",
+    "featured": "Featured Machinery",
+    "allMachinery": "All machinery"
   },
   "contact": {
     "title": "Tell us what you need",
@@ -102,6 +115,7 @@
     "message": "Message",
     "file": "Attach file (optional)",
     "consent": "I consent to be contacted about my inquiry.",
+    "consentRequired": "Consent required",
     "submit": "Send request",
     "success": "Thanks — we’ll get back to you shortly.",
     "error": "Something went wrong. Please try again."
@@ -114,6 +128,9 @@
     "rights": "All rights reserved.",
     "privacy": "Privacy",
     "terms": "Terms",
-    "follow": "Follow"
+    "follow": "Follow",
+    "email": "info@inpharmatrading.nl",
+    "phone": "+31 000 000 000",
+    "country": "Netherlands"
   }
 }

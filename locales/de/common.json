@@ -19,7 +19,8 @@
   "about": {
     "title": "Über In Pharma Trading",
     "subtitle": "Entdecken Sie unsere internationale Expertise in Pharmaanlagen und unser Engagement für hochwertige, maßgeschneiderte Lösungen für Ihre Produktionsanforderungen.",
-    "description": "In Pharma Trading ist ein internationaler Großhändler und Hersteller (unter Lizenz) von hochwertigen Pharmaanlagen. Seit vielen Jahren sind wir mit Unternehmen verbunden, die auf die Herstellung und Verpackung von Nahrungsergänzungsmitteln spezialisiert sind. Dadurch wissen wir genau, welche Spezifikationen, Qualität und Servicelevel unsere Maschinen und Dienstleistungen haben müssen. Gemeinsam mit Ihnen bestimmen wir, welche Maschinen am besten zu Ihrer Situation passen. Zudem bieten wir flexible Finanzierung, damit die Anschaffung in Ihr Budget passt."
+    "description": "In Pharma Trading ist ein internationaler Großhändler und Hersteller (unter Lizenz) von hochwertigen Pharmaanlagen. Seit vielen Jahren sind wir mit Unternehmen verbunden, die auf die Herstellung und Verpackung von Nahrungsergänzungsmitteln spezialisiert sind. Dadurch wissen wir genau, welche Spezifikationen, Qualität und Servicelevel unsere Maschinen und Dienstleistungen haben müssen. Gemeinsam mit Ihnen bestimmen wir, welche Maschinen am besten zu Ihrer Situation passen. Zudem bieten wir flexible Finanzierung, damit die Anschaffung in Ihr Budget passt.",
+    "learnMore": "Mehr erfahren"
   },
   "why": {
     "title": "Warum In Pharma Trading",
@@ -65,6 +66,7 @@
   },
   "financing": {
     "title": "Finanzierung passend zu Ihnen",
+    "description": "Leasing und Teilzahlungen, die zu Ihrem Cashflow passen.",
     "cta": "Vertrieb kontaktieren"
   },
 
@@ -88,7 +90,18 @@
       "in": "Auf Lager",
       "req": "Auf Anfrage"
     },
-    "enquire": "Anfragen"
+    "enquire": "Anfragen",
+    "interested": "Interessiert an dieser Maschine?",
+    "contactDescription": "Kontaktieren Sie uns, um Verfügbarkeit, Preise und technische Spezifikationen zu besprechen.",
+    "contactUs": "Kontakt aufnehmen",
+    "details": "Details",
+    "category": "Kategorie",
+    "status": "Status",
+    "condition": "Zustand",
+    "keySpecs": "Wichtige Spezifikationen",
+    "description": "Beschreibung",
+    "featured": "Ausgewählte Maschinen",
+    "allMachinery": "Alle Maschinen"
   },
   "contact": {
     "title": "Sagen Sie uns, was Sie brauchen",
@@ -102,6 +115,7 @@
     "message": "Nachricht",
     "file": "Datei anhängen (optional)",
     "consent": "Ich willige ein, zu meiner Anfrage kontaktiert zu werden.",
+    "consentRequired": "Zustimmung erforderlich",
     "submit": "Senden",
     "success": "Vielen Dank — wir melden uns in Kürze.",
     "error": "Etwas ist schiefgelaufen. Bitte erneut versuchen."
@@ -114,6 +128,9 @@
     "rights": "Alle Rechte vorbehalten.",
     "privacy": "Datenschutz",
     "terms": "AGB",
-    "follow": "Folgen"
+    "follow": "Folgen",
+    "email": "info@inpharmatrading.nl",
+    "phone": "+31 000 000 000",
+    "country": "Niederlande"
   }
 }

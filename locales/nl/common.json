@@ -19,7 +19,8 @@
   "about": {
     "title": "Over In Pharma Trading",
     "subtitle": "Ontdek onze internationale expertise in farmaceutische machines en onze toewijding aan het leveren van hoogwaardige oplossingen op maat voor uw productiebehoeften.",
-    "description": "In Pharma Trading is een internationale groothandel en fabrikant (onder licentie) van hoogwaardige farmaceutische machines. Al vele jaren zijn wij verbonden aan bedrijven die gespecialiseerd zijn in de productie en verpakking van voedingssupplementen. Daardoor weten wij exact welke specificaties, kwaliteit en servicestandaarden onze machines en diensten moeten hebben. Samen bepalen we welke machines het beste bij uw situatie passen. We bieden tevens flexibele financiering zodat de aanschaf bij uw budget past."
+    "description": "In Pharma Trading is een internationale groothandel en fabrikant (onder licentie) van hoogwaardige farmaceutische machines. Al vele jaren zijn wij verbonden aan bedrijven die gespecialiseerd zijn in de productie en verpakking van voedingssupplementen. Daardoor weten wij exact welke specificaties, kwaliteit en servicestandaarden onze machines en diensten moeten hebben. Samen bepalen we welke machines het beste bij uw situatie passen. We bieden tevens flexibele financiering zodat de aanschaf bij uw budget past.",
+    "learnMore": "Meer informatie"
   },
   "why": {
     "title": "Waarom In Pharma Trading",
@@ -65,6 +66,7 @@
   },
   "financing": {
     "title": "Financiering op maat",
+    "description": "Leasen en gespreide betalingen afgestemd op uw cashflow.",
     "cta": "Contact met sales"
   },
 
@@ -88,7 +90,18 @@
       "in": "Op voorraad",
       "req": "Op aanvraag"
     },
-    "enquire": "Informeer"
+    "enquire": "Informeer",
+    "interested": "Geïnteresseerd in deze machine?",
+    "contactDescription": "Neem contact op om beschikbaarheid, prijzen en technische specificaties te bespreken.",
+    "contactUs": "Contact opnemen",
+    "details": "Details",
+    "category": "Categorie",
+    "status": "Status",
+    "condition": "Conditie",
+    "keySpecs": "Belangrijke specificaties",
+    "description": "Beschrijving",
+    "featured": "Uitgelichte machines",
+    "allMachinery": "Alle machines"
   },
   "contact": {
     "title": "Vertel ons wat u nodig heeft",
@@ -102,6 +115,7 @@
     "message": "Bericht",
     "file": "Bestand toevoegen (optioneel)",
     "consent": "Ik geef toestemming om contact met mij op te nemen over mijn aanvraag.",
+    "consentRequired": "Toestemming vereist",
     "submit": "Verzenden",
     "success": "Bedankt — we nemen snel contact op.",
     "error": "Er ging iets mis. Probeer het opnieuw."
@@ -114,6 +128,9 @@
     "rights": "Alle rechten voorbehouden.",
     "privacy": "Privacy",
     "terms": "Voorwaarden",
-    "follow": "Volgen"
+    "follow": "Volgen",
+    "email": "info@inpharmatrading.nl",
+    "phone": "+31 000 000 000",
+    "country": "Nederland"
   }
 }
