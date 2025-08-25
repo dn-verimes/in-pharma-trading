@@ -1,17 +1,20 @@
 'use client'
 import Image from 'next/image'
-import Link from 'next/link'
-import { useTranslation } from 'react-i18next'
 import { motion as m } from 'framer-motion'
 import { fx } from '@/components/fx'
 import { useNavigation } from '@/components/NavigationContext'
 
-export default function Hero({ locale }: { locale: string }){
-  const { t } = useTranslation()
+interface PageHeroProps {
+  title: string
+  subtitle?: string
+  backgroundImage?: string
+}
+
+export default function PageHero({ title, subtitle, backgroundImage = "/images/hero.jpg" }: PageHeroProps) {
   const { direction } = useNavigation()
 
-  // Fallback if translation is not ready
-  if (!t) {
+  // Fallback if no title provided
+  if (!title) {
     return null
   }
 
@@ -60,7 +63,7 @@ export default function Hero({ locale }: { locale: string }){
   return (
     <section className="relative overflow-hidden bg-gradient-to-b from-inpharma-gradFrom to-inpharma-gradTo text-slate-900">
       <div className="absolute inset-0 opacity-10">
-        <Image src="/images/hero.jpg" alt="" fill priority sizes="100vw" className="object-cover" />
+        <Image src={backgroundImage} alt="" fill priority sizes="100vw" className="object-cover" />
       </div>
       <div className="relative safe-px mx-auto max-w-7xl py-16 md:py-24 cq-section">
         <m.div 
@@ -74,22 +77,17 @@ export default function Hero({ locale }: { locale: string }){
             style={{fontSize:'var(--step-3)'}}
             variants={childVariants}
           >
-            {t('hero.title')}
+            {title}
           </m.h1>
-          <m.p 
-            className="mt-4 text-slate-100/95" 
-            style={{fontSize:'var(--step-0)'}}
-            variants={childVariants}
-          >
-            {t('hero.subtitle')}
-          </m.p>
-          <m.div 
-            className="mt-6 flex flex-wrap gap-3"
-            variants={childVariants}
-          >
-            <Link href={`/${locale}/machinery`} prefetch className="rounded-lg bg-white text-slate-900 px-4 py-2 font-medium btn-press">{t('hero.ctaPrimary')}</Link>
-            <Link href={`/${locale}/contact`} prefetch className="rounded-lg bg-inpharma-blue text-white px-4 py-2 font-medium btn-press">{t('hero.ctaSecondary')}</Link>
-          </m.div>
+          {subtitle && (
+            <m.p 
+              className="mt-4 text-slate-100/95" 
+              style={{fontSize:'var(--step-0)'}}
+              variants={childVariants}
+            >
+              {subtitle}
+            </m.p>
+          )}
         </m.div>
       </div>
     </section>

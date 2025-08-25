@@ -18,6 +18,7 @@
   },
   "about": {
     "title": "Über In Pharma Trading",
+    "subtitle": "Entdecken Sie unsere internationale Expertise in Pharmaanlagen und unser Engagement für hochwertige, maßgeschneiderte Lösungen für Ihre Produktionsanforderungen.",
     "description": "In Pharma Trading ist ein internationaler Großhändler und Hersteller (unter Lizenz) von hochwertigen Pharmaanlagen. Seit vielen Jahren sind wir mit Unternehmen verbunden, die auf die Herstellung und Verpackung von Nahrungsergänzungsmitteln spezialisiert sind. Dadurch wissen wir genau, welche Spezifikationen, Qualität und Servicelevel unsere Maschinen und Dienstleistungen haben müssen. Gemeinsam mit Ihnen bestimmen wir, welche Maschinen am besten zu Ihrer Situation passen. Zudem bieten wir flexible Finanzierung, damit die Anschaffung in Ihr Budget passt."
   },
   "why": {
@@ -66,15 +67,14 @@
     "title": "Finanzierung passend zu Ihnen",
     "cta": "Vertrieb kontaktieren"
   },
-  "about": {
-    "title": "Tiefes Prozess‑Know‑how",
-    "body": "Unsere Wurzeln in der Herstellung und Verpackung von Supplements bedeuten, dass wir die kritischen Parameter verstehen — von Durchsatz und Containment bis Reinigung und Validierung."
-  },
+
   "cta": {
     "finalTitle": "Bereit, Ihr Projekt zu besprechen?",
     "finalCta": "Kontakt aufnehmen"
   },
   "machinery": {
+    "title": "Pharmaanlagen",
+    "subtitle": "Durchsuchen Sie unsere umfassende Auswahl an hochwertigen Pharmaanlagen. Finden Sie die perfekte Ausrüstung für Ihren Produktionsprozess.",
     "filters": {
       "title": "Filter",
       "category": "Kategorie",
@@ -92,6 +92,7 @@
   },
   "contact": {
     "title": "Sagen Sie uns, was Sie brauchen",
+    "subtitle": "Kontaktieren Sie unser Team, um Ihre Pharmaanlagen-Anforderungen zu besprechen. Wir sind hier, um Ihnen zu helfen, die perfekte Lösung für Ihren Prozess zu finden.",
     "name": "Name",
     "company": "Firma",
     "email": "E‑Mail",
@@ -104,6 +105,10 @@
     "submit": "Senden",
     "success": "Vielen Dank — wir melden uns in Kürze.",
     "error": "Etwas ist schiefgelaufen. Bitte erneut versuchen."
+  },
+  "impression": {
+    "title": "Impressionen",
+    "subtitle": "Machen Sie eine visuelle Tour durch unsere Pharmaanlagen und Einrichtungen. Sehen Sie die Qualität und Präzision, die in jedes Stück Ausrüstung einfließt, das wir anbieten."
   },
   "footer": {
     "rights": "Alle Rechte vorbehalten.",

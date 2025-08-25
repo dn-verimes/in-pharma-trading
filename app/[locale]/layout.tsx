@@ -2,11 +2,7 @@ import type { Metadata } from 'next'
 import './globals.css'
 import { Inter } from 'next/font/google'
 import { initI18n, type Locale } from '@/lib/i18n'
-import I18nProvider from '@/components/I18nProvider'
-import Header from '@/components/Header'
-import Footer from '@/components/Footer'
-import FramerProvider from '@/components/FramerProvider'
-import PageTransition from '@/components/PageTransition'
+import ClientProviders from '@/components/ClientProviders'
 
 const inter = Inter({ subsets: ['latin'], variable: '--font-inter' })
 
@@ -38,14 +34,10 @@ export async function generateMetadata({ params }: { params: { locale: Locale } 
 export default async function RootLayout({ children, params }: { children: React.ReactNode, params: { locale: Locale } }){
   return (
     <html lang={params.locale}>
-      <body className={`${inter.variable} antialiased text-slate-900 bg-white`}>
-        <I18nProvider locale={params.locale}>
-          <FramerProvider>
-            <Header locale={params.locale} />
-            <PageTransition>{children}</PageTransition>
-            <Footer locale={params.locale} />
-          </FramerProvider>
-        </I18nProvider>
+      <body className={`${inter.variable} antialiased text-slate-900 bg-white`} suppressHydrationWarning={true}>
+        <ClientProviders locale={params.locale}>
+          {children}
+        </ClientProviders>
       </body>
     </html>
   )

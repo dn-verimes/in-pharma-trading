@@ -18,6 +18,7 @@
   },
   "about": {
     "title": "About In Pharma Trading",
+    "subtitle": "Discover our international expertise in pharmaceutical machinery and our commitment to delivering high-quality solutions tailored to your production needs.",
     "description": "In Pharma Trading is an international wholesaler and manufacturer (under license) of high-quality pharmaceutical machinery. For many years we have been associated with companies specialized in the production and packaging of nutritional supplements. As a consequence, we know exactly which specifications, quality, and service levels our machines and services should have. Together with you, we determine which machines best fit your specific situation. We also offer flexible financing so the purchase can match your budget."
   },
   "why": {
@@ -66,15 +67,14 @@
     "title": "Financing options tailored to you",
     "cta": "Talk to sales"
   },
-  "about": {
-    "title": "Deep process know‑how",
-    "body": "Our roots in supplement production and packaging mean we understand the critical parameters—from throughput and containment to cleaning and validation—that keep your line compliant and efficient."
-  },
+
   "cta": {
     "finalTitle": "Ready to discuss your project?",
     "finalCta": "Contact us"
   },
   "machinery": {
+    "title": "Pharmaceutical Machinery",
+    "subtitle": "Browse our comprehensive selection of high-quality pharmaceutical machinery. Find the perfect equipment for your production process.",
     "filters": {
       "title": "Filter",
       "category": "Category",
@@ -92,6 +92,7 @@
   },
   "contact": {
     "title": "Tell us what you need",
+    "subtitle": "Get in touch with our team to discuss your pharmaceutical machinery requirements. We're here to help you find the perfect solution for your process.",
     "name": "Name",
     "company": "Company",
     "email": "Email",
@@ -104,6 +105,10 @@
     "submit": "Send request",
     "success": "Thanks — we’ll get back to you shortly.",
     "error": "Something went wrong. Please try again."
+  },
+  "impression": {
+    "title": "Impression",
+    "subtitle": "Take a visual tour of our pharmaceutical machinery and facilities. See the quality and precision that goes into every piece of equipment we offer."
   },
   "footer": {
     "rights": "All rights reserved.",

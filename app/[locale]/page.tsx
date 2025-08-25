@@ -1,16 +1,82 @@
 'use client'
-import Hero from '@/components/Hero'
+import HeroSection from '@/components/HeroSection'
 import WhySection from '@/components/WhySection'
 import FeaturedMachinery from '@/components/FeaturedMachinery'
 import Reveal from '@/components/Reveal'
 import Link from 'next/link'
 import { useTranslation } from 'react-i18next'
+import { motion as m } from 'framer-motion'
+import { useNavigation } from '@/components/NavigationContext'
 
 export default function Home({ params }: { params: { locale: string } }){
   const { t } = useTranslation()
+  const { direction } = useNavigation()
+
+  // Directional animation variants
+  const containerVariants = {
+    hidden: { 
+      opacity: 0, 
+      x: direction === 'left' ? -30 : direction === 'right' ? 30 : 0,
+      y: direction ? 0 : 8
+    },
+    show: { 
+      opacity: 1, 
+      x: 0, 
+      y: 0,
+      transition: { 
+        duration: 0.4, 
+        ease: [0.2, 0.65, 0.3, 0.9] as any,
+        staggerChildren: 0.1
+      }
+    }
+  }
+
+  const childVariants = {
+    hidden: { 
+      opacity: 0, 
+      x: direction === 'left' ? -20 : direction === 'right' ? 20 : 0,
+      y: direction ? 0 : 6
+    },
+    show: { 
+      opacity: 1, 
+      x: 0, 
+      y: 0,
+      transition: { duration: 0.3, ease: [0.2, 0.65, 0.3, 0.9] as any }
+    }
+  }
+
   return (
     <div>
-      <Hero locale={params.locale} />
+      <HeroSection>
+        <m.div 
+          className="max-w-2xl" 
+          initial="hidden" 
+          animate="show"
+          variants={containerVariants}
+        >
+          <m.h1 
+            className="text-white font-semibold leading-tight" 
+            style={{fontSize:'var(--step-3)'}}
+            variants={childVariants}
+          >
+            {t('hero.title')}
+          </m.h1>
+          <m.p 
+            className="mt-4 text-slate-100/95" 
+            style={{fontSize:'var(--step-0)'}}
+            variants={childVariants}
+          >
+            {t('hero.subtitle')}
+          </m.p>
+          <m.div 
+            className="mt-6 flex flex-wrap gap-3"
+            variants={childVariants}
+          >
+            <Link href={`/${params.locale}/machinery`} prefetch className="rounded-lg bg-white text-slate-900 px-4 py-2 font-medium btn-press">{t('hero.ctaPrimary')}</Link>
+            <Link href={`/${params.locale}/contact`} prefetch className="rounded-lg bg-inpharma-blue text-white px-4 py-2 font-medium btn-press">{t('hero.ctaSecondary')}</Link>
+          </m.div>
+        </m.div>
+      </HeroSection>
       <Reveal>
         <FeaturedMachinery locale={params.locale} />
       </Reveal>

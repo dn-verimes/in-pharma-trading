@@ -3,8 +3,13 @@ import { catalog, categories, type Machine } from '@/lib/machines'
 import MachineryCard from '@/components/MachineryCard'
 import { useMemo, useState } from 'react'
 import { motion as m, AnimatePresence } from 'framer-motion'
+import HeroSection from '@/components/HeroSection'
+import { useTranslation } from 'react-i18next'
+import { useNavigation } from '@/components/NavigationContext'
 
 export default function Machinery({ params }: { params: { locale: string } }){
+  const { t } = useTranslation()
+  const { direction } = useNavigation()
   const [q, setQ] = useState('')
   const [cat, setCat] = useState<string[]>([])
   const [cond, setCond] = useState<string>('')
@@ -23,9 +28,65 @@ export default function Machinery({ params }: { params: { locale: string } }){
     })
   }, [q, cat, cond, avail, cap])
 
+  // Directional animation variants
+  const containerVariants = {
+    hidden: { 
+      opacity: 0, 
+      x: direction === 'left' ? -30 : direction === 'right' ? 30 : 0,
+      y: direction ? 0 : 8
+    },
+    show: { 
+      opacity: 1, 
+      x: 0, 
+      y: 0,
+      transition: { 
+        duration: 0.4, 
+        ease: [0.2, 0.65, 0.3, 0.9] as any,
+        staggerChildren: 0.1
+      }
+    }
+  }
+
+  const childVariants = {
+    hidden: { 
+      opacity: 0, 
+      x: direction === 'left' ? -20 : direction === 'right' ? 20 : 0,
+      y: direction ? 0 : 6
+    },
+    show: { 
+      opacity: 1, 
+      x: 0, 
+      y: 0,
+      transition: { duration: 0.3, ease: [0.2, 0.65, 0.3, 0.9] as any }
+    }
+  }
+
   return (
-    <div className="safe-px mx-auto max-w-7xl py-8 cq-section">
-      <h1 className="text-slate-900 font-semibold mb-4" style={{fontSize:'var(--step-2)'}}>Machinery</h1>
+    <div>
+      <HeroSection>
+        <m.div 
+          className="max-w-2xl" 
+          initial="hidden" 
+          animate="show"
+          variants={containerVariants}
+        >
+          <m.h1 
+            className="text-white font-semibold leading-tight" 
+            style={{fontSize:'var(--step-3)'}}
+            variants={childVariants}
+          >
+            {t('machinery.title')}
+          </m.h1>
+          <m.p 
+            className="mt-4 text-slate-100/95" 
+            style={{fontSize:'var(--step-0)'}}
+            variants={childVariants}
+          >
+            {t('machinery.subtitle')}
+          </m.p>
+        </m.div>
+      </HeroSection>
+      <div className="safe-px mx-auto max-w-7xl py-8 cq-section">
       <div className="md:hidden mb-3">
         <button onClick={()=>setOpen(v=>!v)} className="rounded-lg border px-3 py-2 text-sm">Filters</button>
       </div>
@@ -119,6 +180,7 @@ export default function Machinery({ params }: { params: { locale: string } }){
           {!filtered.length && <div className="text-sm text-slate-600">No results.</div>}
         </section>
       </div>
+    </div>
     </div>
   )
 }

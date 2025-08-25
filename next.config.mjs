@@ -5,13 +5,8 @@ const nextConfig = {
     typedRoutes: true
   },
   images: {
-    formats: ['image/avif', 'image/webp'],
-    unoptimized: true // Only needed for static export
-  },
-  output: 'export', // Enable static export for Azure SWA
-  trailingSlash: true,
-  distDir: 'out', // Only needed for static export
-  skipMiddlewareUrlNormalize: true // Only needed for static export
+    formats: ['image/avif', 'image/webp']
+  }
 };
 
 export default nextConfig;

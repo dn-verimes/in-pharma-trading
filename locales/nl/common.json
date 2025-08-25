@@ -18,6 +18,7 @@
   },
   "about": {
     "title": "Over In Pharma Trading",
+    "subtitle": "Ontdek onze internationale expertise in farmaceutische machines en onze toewijding aan het leveren van hoogwaardige oplossingen op maat voor uw productiebehoeften.",
     "description": "In Pharma Trading is een internationale groothandel en fabrikant (onder licentie) van hoogwaardige farmaceutische machines. Al vele jaren zijn wij verbonden aan bedrijven die gespecialiseerd zijn in de productie en verpakking van voedingssupplementen. Daardoor weten wij exact welke specificaties, kwaliteit en servicestandaarden onze machines en diensten moeten hebben. Samen bepalen we welke machines het beste bij uw situatie passen. We bieden tevens flexibele financiering zodat de aanschaf bij uw budget past."
   },
   "why": {
@@ -66,15 +67,14 @@
     "title": "Financiering op maat",
     "cta": "Contact met sales"
   },
-  "about": {
-    "title": "Diepe proceskennis",
-    "body": "Onze achtergrond in supplementproductie en -verpakking betekent dat we de cruciale parameters kennen — van throughput en containment tot reinigen en validatie."
-  },
+
   "cta": {
     "finalTitle": "Klaar om uw project te bespreken?",
     "finalCta": "Neem contact op"
   },
   "machinery": {
+    "title": "Farmaceutische Machines",
+    "subtitle": "Bekijk onze uitgebreide selectie van hoogwaardige farmaceutische machines. Vind de perfecte apparatuur voor uw productieproces.",
     "filters": {
       "title": "Filter",
       "category": "Categorie",
@@ -92,6 +92,7 @@
   },
   "contact": {
     "title": "Vertel ons wat u nodig heeft",
+    "subtitle": "Neem contact op met ons team om uw farmaceutische machinebehoeften te bespreken. We zijn hier om u te helpen de perfecte oplossing voor uw proces te vinden.",
     "name": "Naam",
     "company": "Bedrijf",
     "email": "E‑mail",
@@ -104,6 +105,10 @@
     "submit": "Verzenden",
     "success": "Bedankt — we nemen snel contact op.",
     "error": "Er ging iets mis. Probeer het opnieuw."
+  },
+  "impression": {
+    "title": "Impressie",
+    "subtitle": "Maak een visuele rondleiding door onze farmaceutische machines en faciliteiten. Zie de kwaliteit en precisie die in elk stuk apparatuur zit dat we aanbieden."
   },
   "footer": {
     "rights": "Alle rechten voorbehouden.",
