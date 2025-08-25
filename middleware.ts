@@ -18,6 +18,11 @@ function getLocale(req: NextRequest){
 }
 
 export function middleware(req: NextRequest){
+  // Skip middleware for static export
+  if (process.env.NODE_ENV === 'production' && process.env.NEXT_PUBLIC_STATIC_EXPORT) {
+    return NextResponse.next()
+  }
+
   const { pathname } = req.nextUrl
   const isAsset = pathname.startsWith('/_next') || pathname.includes('.') || pathname.startsWith('/api')
   if (isAsset) return NextResponse.next()
