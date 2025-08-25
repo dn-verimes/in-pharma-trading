@@ -1,11 +1,13 @@
 'use client'
 import { catalog, categories, type Machine } from '@/lib/machines'
 import MachineryCard from '@/components/MachineryCard'
-import { useMemo, useState } from 'react'
+import MachineDialog from '@/components/MachineDialog'
+import { useMemo, useState, useEffect } from 'react'
 import { motion as m, AnimatePresence } from 'framer-motion'
 import HeroSection from '@/components/HeroSection'
 import { useTranslation } from 'react-i18next'
 import { useNavigation } from '@/components/NavigationContext'
+import Image from 'next/image'
 
 export default function Machinery({ params }: { params: { locale: string } }){
   const { t } = useTranslation()
@@ -16,6 +18,46 @@ export default function Machinery({ params }: { params: { locale: string } }){
   const [avail, setAvail] = useState<string>('')
   const [cap, setCap] = useState<number>(0)
   const [open, setOpen] = useState(false)
+  const [selectedMachine, setSelectedMachine] = useState<Machine | null>(null)
+  const [isDialogOpen, setIsDialogOpen] = useState(false)
+
+  // Handle machine card click
+  const handleMachineClick = (machine: Machine) => {
+    // Prevent multiple rapid clicks
+    if (isDialogOpen) return
+    
+    setSelectedMachine(machine)
+    setIsDialogOpen(true)
+    
+    // Update URL silently without triggering navigation
+    if (typeof window !== 'undefined') {
+      const newUrl = `/${params.locale}/machinery#${machine.id}`
+      window.history.replaceState({ ...window.history.state, skipRouteChange: true }, '', newUrl)
+    }
+  }
+
+  // Close dialog
+  const handleDialogClose = () => {
+    setIsDialogOpen(false)
+    setSelectedMachine(null)
+    // Update URL silently without triggering navigation
+    if (typeof window !== 'undefined' && window.location.hash) {
+      window.history.replaceState({ ...window.history.state, skipRouteChange: true }, '', `/${params.locale}/machinery`)
+    }
+  }
+
+  // Check for hash on mount to open dialog if needed
+  useEffect(() => {
+    // Only run on initial mount, not on re-renders
+    const hash = window.location.hash.slice(1) // Remove the #
+    if (hash && !isDialogOpen) {
+      const machine = catalog.find(m => m.id === hash)
+      if (machine) {
+        setSelectedMachine(machine)
+        setIsDialogOpen(true)
+      }
+    }
+  }, []) // Empty dependency array ensures this only runs once on mount
 
   const filtered = useMemo(()=>{
     return catalog.filter(m => {
@@ -63,29 +105,46 @@ export default function Machinery({ params }: { params: { locale: string } }){
 
   return (
     <div>
-      <HeroSection>
-        <m.div 
-          className="max-w-2xl" 
-          initial="hidden" 
-          animate="show"
-          variants={containerVariants}
-        >
-          <m.h1 
-            className="text-white font-semibold leading-tight" 
-            style={{fontSize:'var(--step-3)'}}
-            variants={childVariants}
-          >
-            {t('machinery.title')}
-          </m.h1>
-          <m.p 
-            className="mt-4 text-slate-100/95" 
-            style={{fontSize:'var(--step-0)'}}
-            variants={childVariants}
-          >
-            {t('machinery.subtitle')}
-          </m.p>
-        </m.div>
-      </HeroSection>
+      <section 
+        className="relative overflow-hidden bg-gradient-to-b from-inpharma-gradFrom to-inpharma-gradTo text-slate-900" 
+        style={{ height: '400px' }}
+      >
+        <div className="absolute inset-0 opacity-10">
+          <Image 
+            src="/images/hero.jpg" 
+            alt="" 
+            fill 
+            priority 
+            sizes="100vw" 
+            className="object-cover" 
+          />
+        </div>
+        <div className="absolute inset-0 flex items-center" style={{ zIndex: 20 }}>
+          <div className="safe-px mx-auto max-w-7xl w-full py-16 md:py-24">
+            <m.div 
+              className="max-w-2xl" 
+              initial="hidden" 
+              animate="show"
+              variants={containerVariants}
+            >
+              <m.h1 
+                className="text-white font-semibold leading-tight" 
+                style={{fontSize:'var(--step-3)'}}
+                variants={childVariants}
+              >
+                {t('machinery.title')}
+              </m.h1>
+              <m.p 
+                className="mt-4 text-slate-100/95" 
+                style={{fontSize:'var(--step-0)'}}
+                variants={childVariants}
+              >
+                {t('machinery.subtitle')}
+              </m.p>
+            </m.div>
+          </div>
+        </div>
+      </section>
       <div className="safe-px mx-auto max-w-7xl py-8 cq-section">
       <div className="md:hidden mb-3">
         <button onClick={()=>setOpen(v=>!v)} className="rounded-lg border px-3 py-2 text-sm">Filters</button>
@@ -176,11 +235,19 @@ export default function Machinery({ params }: { params: { locale: string } }){
           <button onClick={()=>{ setQ(''); setCat([]); setCond(''); setAvail(''); setCap(0); }} className="w-full rounded-lg border border-slate-300 px-3 py-2 text-sm">Reset</button>
         </aside>
         <section className="grid gap-4 grid-cols-[repeat(auto-fit,minmax(18rem,1fr))]">
-          {filtered.map(m => <div id={m.id} key={m.id}><MachineryCard m={m} locale={params.locale} /></div>)}
+          {filtered.map(m => <div id={m.id} key={m.id}><MachineryCard m={m} locale={params.locale} onClick={handleMachineClick} updateRoute={false} /></div>)}
           {!filtered.length && <div className="text-sm text-slate-600">No results.</div>}
         </section>
       </div>
     </div>
+    
+    {/* Machine Details Dialog */}
+    <MachineDialog
+      machine={selectedMachine}
+      isOpen={isDialogOpen}
+      onClose={handleDialogClose}
+      locale={params.locale}
+    />
     </div>
   )
 }

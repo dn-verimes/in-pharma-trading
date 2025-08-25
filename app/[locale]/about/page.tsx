@@ -4,6 +4,7 @@ import HeroSection from '@/components/HeroSection'
 import { useTranslation } from 'react-i18next'
 import { motion as m } from 'framer-motion'
 import { useNavigation } from '@/components/NavigationContext'
+import Image from 'next/image'
 
 export default function About({ params }: { params: { locale: string } }){
   const { t } = useTranslation()
@@ -44,41 +45,68 @@ export default function About({ params }: { params: { locale: string } }){
 
   return (
     <div>
-      <HeroSection>
-        <m.div 
-          className="max-w-2xl" 
-          initial="hidden" 
-          animate="show"
-          variants={containerVariants}
-        >
-          <m.h1 
-            className="text-white font-semibold leading-tight" 
-            style={{fontSize:'var(--step-3)'}}
-            variants={childVariants}
-          >
-            {t('about.title')}
-          </m.h1>
-          <m.p 
-            className="mt-4 text-slate-100/95" 
-            style={{fontSize:'var(--step-0)'}}
-            variants={childVariants}
-          >
-            {t('about.subtitle')}
-          </m.p>
-        </m.div>
-      </HeroSection>
+      <section 
+        className="relative overflow-hidden bg-gradient-to-b from-inpharma-gradFrom to-inpharma-gradTo text-slate-900" 
+        style={{ height: '400px' }}
+      >
+        <div className="absolute inset-0 opacity-10">
+          <Image 
+            src="/images/hero.jpg" 
+            alt="" 
+            fill 
+            priority 
+            sizes="100vw" 
+            className="object-cover" 
+          />
+        </div>
+        <div className="absolute inset-0 flex items-center" style={{ zIndex: 20 }}>
+          <div className="safe-px mx-auto max-w-7xl w-full py-16 md:py-24">
+            <m.div 
+              className="max-w-2xl" 
+              initial="hidden" 
+              animate="show"
+              variants={containerVariants}
+            >
+              <m.h1 
+                className="text-white font-semibold leading-tight" 
+                style={{fontSize:'var(--step-3)'}}
+                variants={childVariants}
+              >
+                {t('about.title')}
+              </m.h1>
+              <m.p 
+                className="mt-4 text-slate-100/95" 
+                style={{fontSize:'var(--step-0)'}}
+                variants={childVariants}
+              >
+                {t('about.subtitle')}
+              </m.p>
+            </m.div>
+          </div>
+        </div>
+      </section>
       <div className="safe-px mx-auto max-w-7xl py-8 cq-section">
         <Reveal>
-        <div className="mt-12 grid gap-6 grid-cols-[repeat(auto-fit,minmax(16rem,1fr))]">
-          {(t('why.cards', { returnObjects: true }) as any[]).slice(0, 3).map((card: any, index: number) => (
-            <div key={index} className="rounded-xl border border-slate-200 p-6 bg-white shadow-sm">
-              <div className="font-medium text-slate-900 mb-2">{card.title}</div>
-              <p className="text-sm text-slate-600">{card.desc}</p>
+          <div className="max-w-4xl">
+            <div className="prose prose-slate max-w-none">
+              <p className="text-lg text-slate-700 leading-relaxed">
+                {t('about.description')}
+              </p>
             </div>
-          ))}
-        </div>
-      </Reveal>
-    </div>
+          </div>
+        </Reveal>
+        
+        <Reveal>
+          <div className="mt-12 grid gap-6 grid-cols-[repeat(auto-fit,minmax(16rem,1fr))]">
+            {(t('why.cards', { returnObjects: true }) as any[]).slice(0, 3).map((card: any, index: number) => (
+              <div key={index} className="rounded-xl border border-slate-200 p-6 bg-white shadow-sm">
+                <div className="font-medium text-slate-900 mb-2">{card.title}</div>
+                <p className="text-sm text-slate-600">{card.desc}</p>
+              </div>
+            ))}
+          </div>
+        </Reveal>
+      </div>
     </div>
   )
 }

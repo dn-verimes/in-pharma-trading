@@ -1,15 +1,18 @@
 'use client'
-import { useState } from 'react'
+import { useState, useEffect } from 'react'
 import { useTranslation } from 'react-i18next'
 import { motion as m } from 'framer-motion'
 import Link from 'next/link'
 import MachineryCard from '@/components/MachineryCard'
-import { catalog, categories } from '@/lib/machines'
+import MachineDialog from '@/components/MachineDialog'
+import { catalog, categories, type Machine } from '@/lib/machines'
 
 export default function FeaturedMachinery({ locale }: { locale: string }) {
   const { t } = useTranslation()
   const [selectedCategory, setSelectedCategory] = useState<string | null>(null)
   const [showAllOnMobile, setShowAllOnMobile] = useState(false)
+  const [selectedMachine, setSelectedMachine] = useState<Machine | null>(null)
+  const [isDialogOpen, setIsDialogOpen] = useState(false)
   
   // Get category items from translations
   const items = t('categories.items', { returnObjects: true }) as string[]
@@ -31,8 +34,47 @@ export default function FeaturedMachinery({ locale }: { locale: string }) {
     setShowAllOnMobile(false)
   }
 
+  // Handle machine card click
+  const handleMachineClick = (machine: Machine) => {
+    // Prevent multiple rapid clicks
+    if (isDialogOpen) return
+    
+    setSelectedMachine(machine)
+    setIsDialogOpen(true)
+    
+    // Update URL silently without triggering navigation
+    if (typeof window !== 'undefined') {
+      const newUrl = `/${locale}/machinery#${machine.id}`
+      window.history.replaceState({ ...window.history.state, skipRouteChange: true }, '', newUrl)
+    }
+  }
+
+  // Close dialog
+  const handleDialogClose = () => {
+    setIsDialogOpen(false)
+    setSelectedMachine(null)
+    // Update URL silently without triggering navigation
+    if (typeof window !== 'undefined' && window.location.hash) {
+      window.history.replaceState({ ...window.history.state, skipRouteChange: true }, '', `/${locale}/`)
+    }
+  }
+
+  // Check for hash on mount to open dialog if needed (copied from machinery page)
+  useEffect(() => {
+    // Only run on initial mount, not on re-renders
+    const hash = window.location.hash.slice(1) // Remove the #
+    if (hash && !isDialogOpen) {
+      const machine = catalog.find(m => m.id === hash)
+      if (machine) {
+        setSelectedMachine(machine)
+        setIsDialogOpen(true)
+      }
+    }
+  }, []) // Empty dependency array ensures this only runs once on mount
+
   return (
-    <section className="safe-px mx-auto max-w-7xl py-12 md:py-16 cq-section btf">
+    <>
+      <section className="safe-px mx-auto max-w-7xl py-12 md:py-16 cq-section btf">
       <div className="flex items-center justify-between mb-4">
         <h2 className="text-slate-900 font-semibold" style={{fontSize:'var(--step-2)'}}>
           Featured Machinery
@@ -87,7 +129,7 @@ export default function FeaturedMachinery({ locale }: { locale: string }) {
       {/* Desktop: Show all machines in grid */}
       <div className="hidden md:grid gap-4 mt-6 grid-cols-[repeat(auto-fill,minmax(18rem,24rem))]">
         {allDisplayMachines.map(machine => (
-          <MachineryCard key={machine.id} m={machine} locale={locale} />
+          <MachineryCard key={machine.id} m={machine} locale={locale} onClick={handleMachineClick} updateRoute={false} />
         ))}
       </div>
       
@@ -95,7 +137,7 @@ export default function FeaturedMachinery({ locale }: { locale: string }) {
       <div className="md:hidden">
         <div className="grid gap-4 mt-6 grid-cols-1">
           {displayMachines.map(machine => (
-            <MachineryCard key={machine.id} m={machine} locale={locale} />
+            <MachineryCard key={machine.id} m={machine} locale={locale} onClick={handleMachineClick} updateRoute={false} />
           ))}
         </div>
         
@@ -121,5 +163,14 @@ export default function FeaturedMachinery({ locale }: { locale: string }) {
         </div>
       )}
     </section>
+
+    {/* Machine Details Dialog - Outside section to avoid stacking context issues */}
+    <MachineDialog
+      machine={selectedMachine}
+      isOpen={isDialogOpen}
+      onClose={handleDialogClose}
+      locale={locale}
+    />
+  </>
   )
 }

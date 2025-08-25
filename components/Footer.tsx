@@ -13,7 +13,6 @@ export default function Footer({ locale }: { locale: string }){
         <div className="space-y-3">
           <Logo />
           <p className="text-sm text-slate-600 max-w-prose">{t('meta.description')}</p>
-          <LanguageSwitcher current={locale} />
         </div>
         <div className="grid grid-cols-2 gap-4">
           <div>
