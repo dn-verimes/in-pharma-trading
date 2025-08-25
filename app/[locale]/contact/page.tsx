@@ -8,7 +8,7 @@ import { motion as m } from 'framer-motion'
 import { useNavigation } from '@/components/NavigationContext'
 import Image from 'next/image'
 
-const schema = z.object({
+const createSchema = (t: any) => z.object({
   name: z.string().min(2),
   company: z.string().optional(),
   email: z.string().email(),
@@ -18,11 +18,12 @@ const schema = z.object({
   message: z.string().min(10),
   consent: z.literal(true, { errorMap: () => ({ message: t('contact.consentRequired') }) })
 })
-type FormData = z.infer<typeof schema>
+type FormData = z.infer<ReturnType<typeof createSchema>>
 
 export default function Contact({ params }: { params: { locale: string } }){
   const { t } = useTranslation()
   const { direction } = useNavigation()
+  const schema = createSchema(t)
   const { register, handleSubmit, formState: { errors, isSubmitting, isSubmitSuccessful }, reset } = useForm<FormData>({
     resolver: zodResolver(schema)
   })
