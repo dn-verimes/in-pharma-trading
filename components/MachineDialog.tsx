@@ -4,6 +4,7 @@ import { motion as m, AnimatePresence } from 'framer-motion'
 import { X, ChevronLeft, ChevronRight } from 'lucide-react'
 import type { Machine } from '@/lib/machines'
 import { useTranslation } from 'react-i18next'
+import { useContact } from '@/components/ContactContext'
 import AnimatedImage from '@/components/AnimatedImage'
 
 interface MachineDialogProps {
@@ -15,6 +16,7 @@ interface MachineDialogProps {
 
 export default function MachineDialog({ machine, isOpen, onClose, locale }: MachineDialogProps) {
   const { t } = useTranslation()
+  const { openContactDialog } = useContact()
   const [currentImageIndex, setCurrentImageIndex] = useState(0)
 
   // Close dialog on escape key
@@ -97,11 +99,10 @@ export default function MachineDialog({ machine, isOpen, onClose, locale }: Mach
             {/* Content */}
             <div className="flex-1 overflow-y-auto">
               <div className="p-4 md:p-6 space-y-6">
-                {/* Image Gallery and Contact Button */}
-                <div className="flex flex-col md:flex-row gap-4 items-start">
-                  {/* Image Gallery */}
-                  <div className="relative flex-1">
-                    <div className="aspect-[4/3] max-h-64 relative rounded-lg overflow-hidden bg-slate-100">
+                {/* Image Gallery - Full width on mobile */}
+                <div className="w-full">
+                  <div className="relative w-full">
+                    <div className="aspect-[3/2] w-full max-h-72 relative rounded-lg overflow-hidden bg-slate-100">
                       <AnimatedImage
                         src={machine.images[currentImageIndex]}
                         alt={`${machine.name} - Image ${currentImageIndex + 1}`}
@@ -144,18 +145,18 @@ export default function MachineDialog({ machine, isOpen, onClose, locale }: Mach
                       </div>
                     )}
                   </div>
+                </div>
 
-                  {/* Contact CTA - Always visible next to image */}
-                  <div className="bg-slate-50 rounded-lg p-4 md:p-6 md:w-80 shrink-0">
-                    <h3 className="text-lg font-semibold text-slate-900 mb-2">{t('machinery.interested')}</h3>
-                    <p className="text-slate-600 mb-4 text-sm">{t('machinery.contactDescription')}</p>
-                    <a
-                      href={`/${locale}/contact`}
-                      className="inline-flex items-center px-4 py-2 bg-blue-600 text-white rounded-lg hover:bg-blue-700 transition-colors font-medium w-full justify-center"
-                    >
-                      {t('machinery.contactUs')}
-                    </a>
-                  </div>
+                {/* Contact CTA - Full width on mobile */}
+                <div className="bg-slate-50 rounded-lg p-4 md:p-6 w-full">
+                  <h3 className="text-lg font-semibold text-slate-900 mb-2">Interested in this machine?</h3>
+                  <p className="text-slate-600 mb-4 text-sm">Contact us to discuss availability, pricing, and technical specifications.</p>
+                  <button
+                    onClick={() => openContactDialog(machine.name)}
+                    className="inline-flex items-center px-4 py-2 bg-blue-600 text-white rounded-lg hover:bg-blue-700 transition-colors font-medium w-full justify-center"
+                  >
+                    Contact Us
+                  </button>
                 </div>
 
                 {/* Basic Info */}
@@ -168,9 +169,9 @@ export default function MachineDialog({ machine, isOpen, onClose, locale }: Mach
                         <span className="font-medium">{machine.category}</span>
                       </div>
                       <div className="flex justify-between">
-                        <span className="text-slate-600">{t('machinery.status')}:</span>
+                        <span className="text-slate-600">Status:</span>
                         <span className={`font-medium ${machine.status === 'In stock' ? 'text-green-600' : 'text-orange-600'}`}>
-                          {machine.status === 'In stock' ? t('machinery.status.in') : t('machinery.status.req')}
+                          {machine.status === 'In stock' ? 'In stock' : 'On request'}
                         </span>
                       </div>
                       {machine.condition && (

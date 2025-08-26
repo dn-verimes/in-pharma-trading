@@ -7,7 +7,6 @@ import { motion as m, AnimatePresence } from 'framer-motion'
 import HeroSection from '@/components/HeroSection'
 import { useTranslation } from 'react-i18next'
 import { useNavigation } from '@/components/NavigationContext'
-import Image from 'next/image'
 
 export default function Machinery({ params }: { params: { locale: string } }){
   const { t } = useTranslation()
@@ -105,46 +104,29 @@ export default function Machinery({ params }: { params: { locale: string } }){
 
   return (
     <div>
-      <section 
-        className="relative overflow-hidden bg-gradient-to-b from-inpharma-gradFrom to-inpharma-gradTo text-slate-900" 
-        style={{ height: '400px' }}
-      >
-        <div className="absolute inset-0 opacity-10">
-          <Image 
-            src="/images/hero.jpg" 
-            alt="" 
-            fill 
-            priority 
-            sizes="100vw" 
-            className="object-cover" 
-          />
-        </div>
-        <div className="absolute inset-0 flex items-center" style={{ zIndex: 20 }}>
-          <div className="safe-px mx-auto max-w-7xl w-full py-16 md:py-24">
-            <m.div 
-              className="max-w-2xl" 
-              initial="hidden" 
-              animate="show"
-              variants={containerVariants}
-            >
-              <m.h1 
-                className="text-white font-semibold leading-tight" 
-                style={{fontSize:'var(--step-3)'}}
-                variants={childVariants}
-              >
-                {t('machinery.title')}
-              </m.h1>
-              <m.p 
-                className="mt-4 text-slate-100/95" 
-                style={{fontSize:'var(--step-0)'}}
-                variants={childVariants}
-              >
-                {t('machinery.subtitle')}
-              </m.p>
-            </m.div>
-          </div>
-        </div>
-      </section>
+      <HeroSection>
+        <m.div 
+          className="max-w-2xl" 
+          initial="hidden" 
+          animate="show"
+          variants={containerVariants}
+        >
+          <m.h1 
+            className="text-white font-semibold leading-tight" 
+            style={{fontSize:'var(--step-3)'}}
+            variants={childVariants}
+          >
+            {t('machinery.title')}
+          </m.h1>
+          <m.p 
+            className="mt-4 text-slate-100/95" 
+            style={{fontSize:'var(--step-0)'}}
+            variants={childVariants}
+          >
+            {t('machinery.subtitle')}
+          </m.p>
+        </m.div>
+      </HeroSection>
       <div className="safe-px mx-auto max-w-7xl py-8 cq-section">
       <div className="md:hidden mb-3">
         <button onClick={()=>setOpen(v=>!v)} className="rounded-lg border px-3 py-2 text-sm">Filters</button>

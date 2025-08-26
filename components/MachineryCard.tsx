@@ -40,7 +40,9 @@ export default function MachineryCard({ m: item, locale, onClick, updateRoute = 
         <div className="font-medium text-slate-900">{item.name}</div>
         <div className="text-sm text-slate-600">{item.shortDescription}</div>
         <div className="mt-auto flex items-center text-xs text-slate-600">
-          <span>{item.status === 'In stock' ? t('machinery.status.in') : t('machinery.status.req')}</span>
+          <span>
+            {item.status === 'In stock' ? 'In stock' : 'On request'}
+          </span>
         </div>
       </div>
     </m.div>

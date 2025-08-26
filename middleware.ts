@@ -19,7 +19,7 @@ function getLocale(req: NextRequest){
 
 export function middleware(req: NextRequest){
   // Skip middleware for static export
-  if (process.env.NODE_ENV === 'production' && process.env.NEXT_PUBLIC_STATIC_EXPORT) {
+  if (process.env.NODE_ENV === 'production' && process.env.NEXT_PUBLIC_STATIC_EXPORT === 'true') {
     return NextResponse.next()
   }
 

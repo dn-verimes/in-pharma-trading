@@ -2,12 +2,14 @@
 import Image from 'next/image'
 import Link from 'next/link'
 import { useTranslation } from 'react-i18next'
+import { useContact } from '@/components/ContactContext'
 import { motion as m } from 'framer-motion'
 import { fx } from '@/components/fx'
 import { useNavigation } from '@/components/NavigationContext'
 
 export default function Hero({ locale }: { locale: string }){
   const { t } = useTranslation()
+  const { openContactDialog } = useContact()
   const { direction } = useNavigation()
 
   // Fallback if translation is not ready
@@ -88,7 +90,7 @@ export default function Hero({ locale }: { locale: string }){
             variants={childVariants}
           >
             <Link href={`/${locale}/machinery`} prefetch className="rounded-lg bg-white text-slate-900 px-4 py-2 font-medium btn-press">{t('hero.ctaPrimary')}</Link>
-            <Link href={`/${locale}/contact`} prefetch className="rounded-lg bg-inpharma-blue text-white px-4 py-2 font-medium btn-press">{t('hero.ctaSecondary')}</Link>
+            <button onClick={() => openContactDialog()} className="rounded-lg bg-inpharma-blue text-white px-4 py-2 font-medium btn-press hover:bg-blue-700 transition-colors">{t('hero.ctaSecondary')}</button>
           </m.div>
         </m.div>
       </div>

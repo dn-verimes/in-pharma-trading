@@ -4,10 +4,12 @@ import Link from 'next/link'
 import Logo from './Logo'
 import LanguageSwitcher from './LanguageSwitcher'
 import { useTranslation } from 'react-i18next'
+import { useContact } from '@/components/ContactContext'
 import { motion as m, useScroll, useTransform, useMotionTemplate, AnimatePresence } from 'framer-motion'
 
 export default function Header({ locale }: { locale: string }){
   const { t } = useTranslation()
+  const { openContactDialog } = useContact()
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false)
   const { scrollY } = useScroll()
   const y = useTransform(scrollY, [0, 80], [0, -6])          // slight lift
@@ -60,9 +62,12 @@ export default function Header({ locale }: { locale: string }){
         </nav>
         <div className="flex items-center gap-3">
           <LanguageSwitcher current={locale} />
-          <Link href={`/${locale}/contact`} prefetch className="hidden sm:inline-flex rounded-lg bg-inpharma-blue text-white px-3 py-2 text-sm font-medium">
+          <button 
+            onClick={() => openContactDialog()}
+            className="hidden sm:inline-flex rounded-lg bg-inpharma-blue text-white px-3 py-2 text-sm font-medium hover:bg-blue-700 transition-colors"
+          >
             {t('hero.ctaSecondary')}
-          </Link>
+          </button>
           
           {/* Mobile Hamburger Menu Button */}
           <m.button
@@ -135,14 +140,15 @@ export default function Header({ locale }: { locale: string }){
                   {t('nav.about')}
                 </Link>
                 <div className="pt-2 border-t border-slate-200 mt-2">
-                  <Link 
-                    href={`/${locale}/contact`} 
-                    prefetch 
+                  <button 
+                    onClick={() => {
+                      openContactDialog()
+                      setIsMobileMenuOpen(false)
+                    }}
                     className="inline-flex rounded-lg bg-inpharma-blue text-white px-4 py-3 text-base font-medium w-full justify-center hover:bg-inpharma-blue/90 transition-colors"
-                    onClick={() => setIsMobileMenuOpen(false)}
                   >
                     {t('hero.ctaSecondary')}
-                  </Link>
+                  </button>
                 </div>
               </nav>
             </div>

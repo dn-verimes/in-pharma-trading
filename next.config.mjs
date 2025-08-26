@@ -1,7 +1,8 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
   reactStrictMode: true,
-  output: 'export',
+  // Temporarily disable static export for development
+  // output: 'export',
   experimental: {
     typedRoutes: true
   },
@@ -12,7 +13,7 @@ const nextConfig = {
   trailingSlash: true,
   distDir: 'out',
   env: {
-    NEXT_PUBLIC_STATIC_EXPORT: 'true'
+    NEXT_PUBLIC_STATIC_EXPORT: 'false'
   }
 };
 

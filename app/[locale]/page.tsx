@@ -5,11 +5,13 @@ import FeaturedMachinery from '@/components/FeaturedMachinery'
 import Reveal from '@/components/Reveal'
 import Link from 'next/link'
 import { useTranslation } from 'react-i18next'
+import { useContact } from '@/components/ContactContext'
 import { motion as m } from 'framer-motion'
 import { useNavigation } from '@/components/NavigationContext'
 
 export default function Home({ params }: { params: { locale: string } }){
   const { t } = useTranslation()
+  const { openContactDialog } = useContact()
   const { direction } = useNavigation()
 
   // Directional animation variants
@@ -73,7 +75,7 @@ export default function Home({ params }: { params: { locale: string } }){
             variants={childVariants}
           >
             <Link href={`/${params.locale}/machinery`} prefetch className="rounded-lg bg-white text-slate-900 px-4 py-2 font-medium btn-press">{t('hero.ctaPrimary')}</Link>
-            <Link href={`/${params.locale}/contact`} prefetch className="rounded-lg bg-inpharma-blue text-white px-4 py-2 font-medium btn-press">{t('hero.ctaSecondary')}</Link>
+            <button onClick={() => openContactDialog()} className="rounded-lg bg-inpharma-blue text-white px-4 py-2 font-medium btn-press hover:bg-blue-700 transition-colors">{t('hero.ctaSecondary')}</button>
           </m.div>
         </m.div>
       </HeroSection>
@@ -101,7 +103,7 @@ export default function Home({ params }: { params: { locale: string } }){
         <section className="safe-px mx-auto max-w-7xl py-12 md:py-16 cq-section btf">
           <div className="rounded-xl border border-slate-200 p-6 text-center">
             <h3 className="font-semibold mb-2" style={{fontSize:'var(--step-2)'}}>{t('cta.finalTitle')}</h3>
-            <Link href={`/${params.locale}/contact`} className="inline-flex rounded-lg bg-inpharma-blue text-white px-4 py-2 btn-press">{t('cta.finalCta')}</Link>
+            <button onClick={() => openContactDialog()} className="inline-flex rounded-lg bg-inpharma-blue text-white px-4 py-2 btn-press hover:bg-blue-700 transition-colors">{t('cta.finalCta')}</button>
           </div>
         </section>
       </Reveal>

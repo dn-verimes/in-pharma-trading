@@ -1,12 +1,12 @@
 'use client'
 import { useForm } from 'react-hook-form'
+import { useForm as useFormspree } from '@formspree/react'
 import { z } from 'zod'
 import { zodResolver } from '@hookform/resolvers/zod'
 import HeroSection from '@/components/HeroSection'
 import { useTranslation } from 'react-i18next'
 import { motion as m } from 'framer-motion'
 import { useNavigation } from '@/components/NavigationContext'
-import Image from 'next/image'
 
 const createSchema = (t: any) => z.object({
   name: z.string().min(2),
@@ -24,18 +24,34 @@ export default function Contact({ params }: { params: { locale: string } }){
   const { t } = useTranslation()
   const { direction } = useNavigation()
   const schema = createSchema(t)
-  const { register, handleSubmit, formState: { errors, isSubmitting, isSubmitSuccessful }, reset } = useForm<FormData>({
+  const { register, handleSubmit, formState: { errors }, reset } = useForm<FormData>({
     resolver: zodResolver(schema)
   })
+  const [state, submitToFormspree] = useFormspree("mnnbqzdq")
 
   async function onSubmit(values: FormData){
-    const fd = new FormData()
-    Object.entries(values).forEach(([k,v])=> fd.append(k, String(v)))
+    // Create form data for Formspree
+    const formData = new FormData()
+    
+    // Add all form fields
+    Object.entries(values).forEach(([key, value]) => {
+      if (value !== undefined && value !== null) {
+        formData.append(key, String(value))
+      }
+    })
+    
+    // Add file if present
     const fileEl = (document.getElementById('file') as HTMLInputElement)
-    if (fileEl?.files?.[0]) fd.append('file', fileEl.files[0])
-    const res = await fetch('/api/contact', { method: 'POST', body: fd })
-    if (res.ok) reset()
-    else alert(t('contact.error'))
+    if (fileEl?.files?.[0]) {
+      formData.append('file', fileEl.files[0])
+    }
+    
+    // Submit to Formspree
+    await submitToFormspree(formData)
+    
+    if (state.succeeded) {
+      reset()
+    }
   }
 
   // Directional animation variants
@@ -73,48 +89,32 @@ export default function Contact({ params }: { params: { locale: string } }){
 
   return (
     <div>
-      <section 
-        className="relative overflow-hidden bg-gradient-to-b from-inpharma-gradFrom to-inpharma-gradTo text-slate-900" 
-        style={{ height: '400px' }}
-      >
-        <div className="absolute inset-0 opacity-10">
-          <Image 
-            src="/images/hero.jpg" 
-            alt="" 
-            fill 
-            priority 
-            sizes="100vw" 
-            className="object-cover" 
-          />
-        </div>
-        <div className="absolute inset-0 flex items-center" style={{ zIndex: 20 }}>
-          <div className="safe-px mx-auto max-w-7xl w-full py-16 md:py-24">
-            <m.div 
-              className="max-w-2xl" 
-              initial="hidden" 
-              animate="show"
-              variants={containerVariants}
-            >
-              <m.h1 
-                className="text-white font-semibold leading-tight" 
-                style={{fontSize:'var(--step-3)'}}
-                variants={childVariants}
-              >
-                {t('contact.title')}
-              </m.h1>
-              <m.p 
-                className="mt-4 text-slate-100/95" 
-                style={{fontSize:'var(--step-0)'}}
-                variants={childVariants}
-              >
-                {t('contact.subtitle')}
-              </m.p>
-            </m.div>
-          </div>
-        </div>
-      </section>
+      <HeroSection>
+        <m.div 
+          className="max-w-2xl" 
+          initial="hidden" 
+          animate="show"
+          variants={containerVariants}
+        >
+          <m.h1 
+            className="text-white font-semibold leading-tight" 
+            style={{fontSize:'var(--step-3)'}}
+            variants={childVariants}
+          >
+            {t('contact.title')}
+          </m.h1>
+          <m.p 
+            className="mt-4 text-slate-100/95" 
+            style={{fontSize:'var(--step-0)'}}
+            variants={childVariants}
+          >
+            {t('contact.subtitle')}
+          </m.p>
+        </m.div>
+      </HeroSection>
       <div className="safe-px mx-auto max-w-3xl py-8 cq-section">
-        {isSubmitSuccessful && <div role="status" aria-live="polite" className="mb-4 rounded-lg bg-green-50 text-green-800 px-3 py-2">{t('contact.success')}</div>}
+        {state.succeeded && <div role="status" aria-live="polite" className="mb-4 rounded-lg bg-green-50 text-green-800 px-3 py-2">{t('contact.success')}</div>}
+        {state.errors && <div role="alert" aria-live="polite" className="mb-4 rounded-lg bg-red-50 text-red-800 px-3 py-2">{t('contact.error')}</div>}
         <form onSubmit={handleSubmit(onSubmit)} className="grid gap-4 [container-type:inline-size]">
           <div className="grid gap-4 @container section-[min-width:640px]:grid-cols-2">
             <div>
@@ -172,7 +172,7 @@ export default function Contact({ params }: { params: { locale: string } }){
             <span>{t('contact.consent')}</span>
           </label>
           {errors.consent && <p className="text-xs text-red-600 mt-1">{errors.consent.message}</p>}
-          <button disabled={isSubmitting} className="rounded-lg bg-inpharma-blue text-white px-4 py-2 disabled:opacity-60">{isSubmitting ? 'Sending…' : t('contact.submit')}</button>
+          <button disabled={state.submitting} className="rounded-lg bg-inpharma-blue text-white px-4 py-2 disabled:opacity-60">{state.submitting ? 'Sending…' : t('contact.submit')}</button>
         </form>
       </div>
     </div>
